@@ -1,5 +1,6 @@
 
 import Pickaxe, Ore, Player, Game
+from pygame import*
 
 def MiningMan(debug=False):
     if debug:
