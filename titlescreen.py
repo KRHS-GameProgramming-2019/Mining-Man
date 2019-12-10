@@ -1,4 +1,5 @@
 import Pickaxe, Ore, Player, Game
+from pygame import*
 
 def MiningMan(debug=False):
     if debug:
@@ -21,8 +22,6 @@ def MiningMan(debug=False):
         elif choice == "Options":
             print(Options.Options(debug))
            
-            
-        
 MiningMan()
 
 
