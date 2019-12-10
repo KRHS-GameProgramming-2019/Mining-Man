@@ -1,4 +1,5 @@
-import Pickaxe, Ore, Player, Game
+
+import Pickaxe, Ore, Player, Game
 
 def MiningMan(debug=False):
     if debug:
