@@ -1,39 +1,31 @@
 #Screen that pops up when you open the game, has Play, Options, and Quit buttons
+from pygame import *
+import Pickaxe, Ore, Game, Settings, Player, Screens, Getters
 
 
-from Pickaxe import*
-from Ore import*
-from Player import*
-from Game import*
-from pygame import*
-pygame.init()
-
-
-
-
-
-def MiningMan(debug=False):
+def Miningman(debug=False):
     if debug:
         print("Debug Active")
     
-    print(screens.titleScreen(debug))
+    print(Screens.Titlescreen(debug))
     
     input("Press Any Key To Continue")
     
     done = False
     while not done:
-        print(Screens.mainMenu(debug))
+        print(Screens.Titlescreen(debug))
         choice = Getters.getMenuOption(debug)
         
-        if choice == "esc":
+        
+        if choice == "q":
             exit();
+        elif choice == "Options":
+            print(Options.Options(debug))
+            input("Press Any Key To Continue")
+            
         elif choice == "Play":
             print(Game.Game(debug))
             
-        elif choice == "Options":
-            print(Options.Options(debug))
-           
-            
         
-MiningMan()
+Miningman()
 
