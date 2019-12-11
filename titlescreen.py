@@ -29,4 +29,3 @@ def Miningman(debug=False):
         
 Miningman()
 
-
