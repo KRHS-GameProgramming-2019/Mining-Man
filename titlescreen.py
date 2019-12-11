@@ -1,3 +1,5 @@
+#Screen that pops up when you open the game, has Play, Options, and Quit buttons
+
 
 from Pickaxe import*
 from Ore import*
