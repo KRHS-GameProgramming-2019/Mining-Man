@@ -1,12 +1,15 @@
 
-import Pickaxe, Ore, Player, Game
+from Pickaxe import*
+from Ore import*
+from Player import*
+from Game import*
 from pygame import*
 
 def MiningMan(debug=False):
     if debug:
         print("Debug Active")
     
-    print(Screens.titleScreen(debug))
+    print(screens.titleScreen(debug))
     
     input("Press Any Key To Continue")
     

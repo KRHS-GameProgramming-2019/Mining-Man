@@ -1,1 +1,2 @@
-pygame.mouse.get_pos
+from pygame import *
+
