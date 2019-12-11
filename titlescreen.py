@@ -6,6 +6,11 @@ from Ore import*
 from Player import*
 from Game import*
 from pygame import*
+pygame.init()
+
+
+
+
 
 def MiningMan(debug=False):
     if debug:
@@ -31,5 +36,4 @@ def MiningMan(debug=False):
             
         
 MiningMan()
-
 
