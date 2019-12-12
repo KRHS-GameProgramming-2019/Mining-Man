@@ -1,6 +1,8 @@
 #Screen that pops up when you open the game, has Play, Options, and Quit buttons
-from pygame import *
-import Pickaxe, Ore, Game, Settings, Player, Screens, Getters
+
+import Pickaxe, Ore, Game, Settings, Player, Screens, Getters, pygame
+
+pygame.init()
 
 
 def Miningman(debug=False):
