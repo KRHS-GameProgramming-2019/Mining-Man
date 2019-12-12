@@ -10,7 +10,16 @@ image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
 imgRect = image.get_rect()
 
 Man = pygame.image.load("images/Player/Guy.png")
-ManRect = Man.get_rect()
+ManRect = Man.get_rect(bottomright = [900,640])
+
+Pick = pygame.image.load("images/Pickaxe/pickaxe.png")
+PickRect = Pick.get_rect(bottomright = [860, 585])
+
+speedx = (-5)
+speedy = (-3)
+Pickspeed = [speedx, speedy]
+
+
 
 
 while True:
@@ -18,8 +27,11 @@ while True:
         if event.type == pygame.QUIT:
             sys.exit();
     screen.blit(image, imgRect)
-    screen.blit(Man, Man
-    
-    Rect)
+    screen.blit(Man, ManRect)
+    screen.blit(Pick, PickRect)
     pygame.display.flip()
+    
+    PickRect = PickRect.move(Pickspeed)
+    
+    
 
