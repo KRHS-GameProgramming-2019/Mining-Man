@@ -8,7 +8,8 @@ size = [900, 640]
 screen = pygame.display.set_mode(size)
 
 
-
+image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
+imgRect = image.get_rect()
 
 screens = "menu"
 
@@ -24,7 +25,8 @@ while True:
                 image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
                 imgRect = image.get_rect()
                 
-            
+                screen.blit(image, imgRect)
+        pygame.display.flip()
 
     
     while screens == "game":
@@ -32,7 +34,7 @@ while True:
             if event.type == pygame.QUIT:
                 sys.exit();
 
-       
+        pygame.display.flip()
 
     
 
