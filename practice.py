@@ -19,13 +19,17 @@ speedx = (-5)
 speedy = (-3)
 Pickspeed = [speedx, speedy]
 
-
+#pygame.mouse.get_pos():
 
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit();
+        elif event.type == pygame.MOUSEBUTTONUP:
+            screen.blit(Pick, PickRect)
+            #MOUSEBUTTONDOWNget_pressed
+           
     screen.blit(image, imgRect)
     screen.blit(Man, ManRect)
     screen.blit(Pick, PickRect)
@@ -33,5 +37,5 @@ while True:
     
     PickRect = PickRect.move(Pickspeed)
     
-    
+   
 
