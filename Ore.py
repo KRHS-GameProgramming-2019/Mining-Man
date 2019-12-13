@@ -1,3 +1,5 @@
+#Ore blocks file, add different ones (color, texture)
+
 from math import *
 from pygame import*
 
