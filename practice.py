@@ -1,4 +1,6 @@
 import pygame, sys, math, random
+from Pickaxe import *
+from Player import*
 pygame.init()
 
 size = [900, 640]
@@ -12,8 +14,7 @@ imgRect = image.get_rect()
 Man = pygame.image.load("images/Player/Guy.png")
 ManRect = Man.get_rect(bottomright = [900,640])
 
-Pick = pygame.image.load("images/Pickaxe/pickaxe.png")
-PickRect = Pick.get_rect(bottomright = [860, 585])
+pick = Pickaxe()
 
 speedx = (-5)
 speedy = (-3)
@@ -26,16 +27,16 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit();
-        elif event.type == pygame.MOUSEBUTTONUP:
-            screen.blit(Pick, PickRect)
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            pick.go()
             #MOUSEBUTTONDOWNget_pressed
-           
-    screen.blit(image, imgRect)
-    screen.blit(Man, ManRect)
-    screen.blit(Pick, PickRect)
-    pygame.display.flip()
     
-    PickRect = PickRect.move(Pickspeed)
+    pick.update()       
+    
+    screen.blit(image, imgRect)
+    screen.blit(Man.image, Man.rect)
+    screen.blit(pick.image, pick.rect)
+    pygame.display.flip()
     
    
 
