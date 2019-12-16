@@ -7,20 +7,17 @@ size = [900, 640]
 screen = pygame.display.set_mode(size)
 
 
-
 image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
 imgRect = image.get_rect()
 
-Man = pygame.image.load("images/Player/Guy.png")
-ManRect = Man.get_rect(bottomright = [900,640])
 
 pick = Pickaxe()
+Guy = Guy()
 
-speedx = (-5)
-speedy = (-3)
+speedx = (-4)
+speedy = (-4)
 Pickspeed = [speedx, speedy]
 
-#pygame.mouse.get_pos():
 
 
 while True:
@@ -28,13 +25,13 @@ while True:
         if event.type == pygame.QUIT:
             sys.exit();
         elif event.type == pygame.MOUSEBUTTONDOWN:
+            print(event.pos)
             pick.go()
-            #MOUSEBUTTONDOWNget_pressed
     
     pick.update()       
     
     screen.blit(image, imgRect)
-    screen.blit(Man.image, Man.rect)
+    screen.blit(Guy.image, Guy.rect)
     screen.blit(pick.image, pick.rect)
     pygame.display.flip()
     
