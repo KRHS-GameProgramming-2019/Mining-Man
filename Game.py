@@ -22,7 +22,7 @@ screens = "menu"
 
 while True:
     
-    image = pygame.image.load("images/TitleScreen/titlescreenbackground-TEST.png")
+    image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
     imgRect = image.get_rect()
     while screens == "menu":
         for event in pygame.event.get():
@@ -45,7 +45,7 @@ while True:
         pygame.display.flip()
                     
       
-    image = pygame.image.load("images/TitleScreen/f.png")
+    image = pygame.image.load("images/TitleScreen/f.jpg")
     imgRect = image.get_rect()
     while screens == "unicorn":
         for event in pygame.event.get():
@@ -91,6 +91,7 @@ while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit();
+                
 
         screen.blit(image, imgRect)
         pygame.display.flip()
