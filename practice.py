@@ -14,10 +14,6 @@ imgRect = image.get_rect()
 pick = Pickaxe()
 Guy = Guy()
 
-speedx = (-4)
-speedy = (-4)
-Pickspeed = [speedx, speedy]
-
 
 
 while True:
@@ -25,10 +21,13 @@ while True:
         if event.type == pygame.QUIT:
             sys.exit();
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            print(event.pos)
-            pick.go()
+            if not pick.launched:
+                pick.go(event.pos)
     
-    pick.update()       
+    pick.update()   
+    
+    if pick.rect.left < 0 or pick.rect.top < 0:
+        pick = Pickaxe()   
     
     screen.blit(image, imgRect)
     screen.blit(Guy.image, Guy.rect)
