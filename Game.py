@@ -1,7 +1,6 @@
 #Main game file
 import pygame, sys, math, random
 from Player import * 
-from titlescreen import *
 from Screens import *
 from Getters import *
 from Settings import *
