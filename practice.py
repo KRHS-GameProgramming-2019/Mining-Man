@@ -7,7 +7,7 @@ size = [900, 640]
 screen = pygame.display.set_mode(size)
 
 
-image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
+image = pygame.image.load("images/TitleScreen/tempbackground.png")
 imgRect = image.get_rect()
 
 
