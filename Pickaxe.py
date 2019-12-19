@@ -19,7 +19,7 @@ class Pickaxe():
         if xdist > 0:
             angle = degrees(atan(ydist/xdist))
             
-            print(angle)
+            
             self.speedx = self.maxSpeed * cos(radians(angle))
             self.speedy = self.maxSpeed * sin(radians(angle))
             self.launched = True

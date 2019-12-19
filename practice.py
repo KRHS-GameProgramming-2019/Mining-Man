@@ -23,6 +23,7 @@ while True:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if not pick.launched:
                 pick.go(event.pos)
+                print(event.pos)
     
     pick.update()   
     
