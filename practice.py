@@ -11,9 +11,10 @@ image = pygame.image.load("images/TitleScreen/tempbackground.png")
 imgRect = image.get_rect()
 
 
+
+
 pick = Pickaxe()
 Guy = Guy()
-
 
 
 while True:

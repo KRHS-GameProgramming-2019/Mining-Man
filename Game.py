@@ -17,8 +17,6 @@ screens = "menu"
 
 
 
-
-
 while True:
     
     image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
@@ -85,12 +83,16 @@ while True:
        
 
     image = pygame.image.load("images/Background/background.png")
+    image = pygame.image.load("images/ores/coal.png")
     imgRect = image.get_rect()
     while screens == "game":
+        
         for event in pygame.event.get():
+            
             if event.type == pygame.QUIT:
                 sys.exit();
-                
+            pygame.image.load("images/ores/coal.png")
+            
 
         screen.blit(image, imgRect)
         pygame.display.flip()
