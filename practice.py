@@ -19,6 +19,8 @@ Guy = Guy()
 
 while True:
     for event in pygame.event.get():
+        coal = pygame.image.load("images/ores/coal.png")
+        imgRect = image.get_rect()
         if event.type == pygame.QUIT:
             sys.exit();
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -35,6 +37,7 @@ while True:
         pick = Pickaxe()   
     
     screen.blit(image, imgRect)
+    screen.blit(coal, imgRect)
     screen.blit(Guy.image, Guy.rect)
     screen.blit(pick.image, pick.rect)
     pygame.display.flip()
