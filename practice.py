@@ -24,6 +24,9 @@ while True:
             if not pick.launched:
                 pick.go(event.pos)
                 print(event.pos)
+            if pick.launched:
+                pick.back([850,590])
+        
     
     pick.update()   
     

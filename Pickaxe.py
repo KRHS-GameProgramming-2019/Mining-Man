@@ -4,7 +4,7 @@ from math import *
 #Pickaxe(s),    one breaks clusters and the other one breaks one block, only on the first row
 
 class Pickaxe():
-    def __init__(self, pos=[860, 585]):
+    def __init__(self, pos=[850,590]):
         self.image = pygame.image.load("images/Pickaxe/pickaxe.png")
         self.rect = self.image.get_rect(bottomright = pos)
         self.maxSpeed = -3
@@ -23,7 +23,19 @@ class Pickaxe():
             self.speedx = self.maxSpeed * cos(radians(angle))
             self.speedy = self.maxSpeed * sin(radians(angle))
             self.launched = True
-        
+    
+    def back(self, pos):
+        xdist = float(self.rect.centerx - pos[0])
+        ydist = float(self.rect.centery - pos[1])
+        if xdist > 0:
+            angle = degrees(atan(ydist/xdist))
+            
+            self.speedx = -(self.maxSpeed * cos(radians(angle)))
+            self.speedy = -(self.maxSpeed * sin(radians(angle)))
+            self.launched = True
+    
+    
+    
     def move(self):
         self.rx += self.speedx
         self.ry += self.speedy
