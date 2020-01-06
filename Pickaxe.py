@@ -5,16 +5,32 @@ from math import *
 
 class Pickaxe():
     def __init__(self, pos=[860,595]):
-        self.image = pygame.image.load("images/Pickaxe/pickaxe.png")
+        self.images = [pygame.image.load("images/Pickaxe/pickaxe1.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe2.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe3.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe4.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe5.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe6.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe7.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe8.png")
+        ]
+        self.frame = 0
+        self.frameMax = len(self.images)-1 
+        
+        self.image = self.images[self.frame]
         self.rect = self.image.get_rect(bottomright = pos)
         self.maxSpeed = -3
         self.startPos = pos
+        
         self.speed = self.speedx, self.speedy = 0,0
         self.launched = False
         self.rx = self.rect.centerx
         self.ry = self.rect.centery
         self.target = [None, None]
         self.direct = ""
+        
+        self.animationTimer = 0
+        self.animationTimerMax = 60/5
         
     def go(self, pos):
         xdist = float(self.rect.centerx - pos[0])
@@ -51,12 +67,14 @@ class Pickaxe():
         self.rect.center = [x,y]
         
     def update(self):
-        self.move();
+        self.move()
+        
         if self.direct == "send":
             if self.rect.centerx < self.target[0] and self.rect.centery < self.target[1]:
                 print("hit target", self.rect.centerx, self.rect.centery, self.target)
                 self.back()
         elif self.direct == "back":
+            self.animate()
             if self.rx > self.target[0] and self.ry > self.target[1]:
                 self.rect = self.image.get_rect(bottomright = self.startPos)
                 self.speed = self.speedx, self.speedy = 0,0
@@ -65,3 +83,18 @@ class Pickaxe():
                 self.ry = self.rect.centery
                 self.target = [None, None]
                 self.direct = ""
+                self.frame = 0
+                self.animationTimer = 0
+                self.image = self.images[self.frame]
+
+
+    def animate(self):
+        self.animationTimer+= 1
+        if self.animationTimer > self.animationTimerMax:
+            self.animationTimer = 0
+            
+            if self.frame >= self.frameMax:
+                self.frame = 0
+            else:
+                self.frame += 1
+            self.image = self.images[self.frame]
