@@ -42,7 +42,7 @@ while True:
         pygame.display.flip()
                     
       
-    image = pygame.image.load("images/TitleScreen/f.jpg")
+    image = pygame.image.load("images/TitleScreen/f.png")
     imgRect = image.get_rect()
     while screens == "unicorn":
         for event in pygame.event.get():
@@ -82,19 +82,32 @@ while True:
                     
        
 
-    image = pygame.image.load("images/Background/background.png")
-    image = pygame.image.load("images/ores/coal.png")
-    imgRect = image.get_rect()
+    image1 = pygame.image.load("images/Background/background.png")
+    rect1 = image1.get_rect(topleft = [0,0])
+    image2 = pygame.image.load("images/ores/coal.png")
+    rect2 = image2.get_rect(midtop = [940/2,0])
+    image3 = pygame.image.load("images/ores/rubie.png")
+    rect3 = image.get_rect(midleft = [0,600/2])
+    image4 = pygame.image.load("images/ores/IRON.png")
+    rect4 = image.get_rect(midright = [940,600/2])
+    
     while screens == "game":
         
         for event in pygame.event.get():
             
             if event.type == pygame.QUIT:
                 sys.exit();
-            pygame.image.load("images/ores/coal.png")
+            
             
 
         screen.blit(image, imgRect)
+        screen.blit(image1, rect1)
+        screen.blit(image2, rect2)
+        screen.blit(image3, rect3)
+        screen.blit(image4, rect4)
+                
+
+        
         pygame.display.flip()
 
     
