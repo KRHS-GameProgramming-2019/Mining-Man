@@ -39,8 +39,6 @@ while True:
         pick = Pickaxe()   
     
     screen.blit(image, imgRect)
-    screen.blit(coal, imgRect)
-    screen.blit(rubie, imgRect)
     screen.blit(Guy.image, Guy.rect)
     screen.blit(pick.image, pick.rect)
     pygame.display.flip()

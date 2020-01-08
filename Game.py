@@ -90,6 +90,8 @@ while True:
     rect3 = image.get_rect(midleft = [0,600/2])
     image4 = pygame.image.load("images/ores/IRON.png")
     rect4 = image.get_rect(midright = [940,600/2])
+    image5 = pygame.image.load("images/ores/Amethest.png")
+    rect5 = image.get_rect(midbottom = [940/2,600])
     
     while screens == "game":
         
@@ -105,6 +107,7 @@ while True:
         screen.blit(image2, rect2)
         screen.blit(image3, rect3)
         screen.blit(image4, rect4)
+        screen.blit(image5, rect5)
                 
 
         
