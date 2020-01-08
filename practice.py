@@ -35,9 +35,6 @@ while True:
     
     pick.update()   
     
-    if pick.rect.left < 0 or pick.rect.top < 0:
-        pick = Pickaxe()   
-    
     screen.blit(image, imgRect)
     screen.blit(Guy.image, Guy.rect)
     screen.blit(pick.image, pick.rect)
