@@ -1,6 +1,7 @@
 import pygame, sys, math, random
 from Pickaxe import *
-from Player import*
+from Player import *
+from Game import *
 pygame.init()
 
 size = [900, 640]

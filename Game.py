@@ -5,6 +5,7 @@ from Screens import *
 from Getters import *
 from Settings import *
 from options import *
+from practice import *
 pygame.init()
 
 size = [900, 640]
@@ -89,7 +90,7 @@ while True:
     image3 = pygame.image.load("images/ores/rubie.png")
     rect3 = image.get_rect(midleft = [300,600])
     image4 = pygame.image.load("images/ores/IRON.png")
-    rect4 = image.get_rect(midright = [940,600/2])
+    rect4 = image.get_rect(bottomright = [600,940])
     image5 = pygame.image.load("images/ores/Amethest.png")
     rect5 = image.get_rect(midbottom = [940/2,600])
     
