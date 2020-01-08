@@ -1,7 +1,6 @@
 import pygame, sys, math, random
 from Pickaxe import *
 from Player import*
-from Game import *
 pygame.init()
 
 size = [900, 640]
@@ -36,10 +35,8 @@ while True:
     
     screen.blit(image, imgRect)
     screen.blit(coal, imgRect)
-    screen.blit(rubie, imgRect)
     screen.blit(Guy.image, Guy.rect)
     screen.blit(pick.image, pick.rect)
     pygame.display.flip()
     
    
-
