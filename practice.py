@@ -20,9 +20,7 @@ Guy = Guy()
 
 while True:
     for event in pygame.event.get():
-        coal = pygame.image.load("images/ores/coal.png")
-        image2
-
+        
         if event.type == pygame.QUIT:
             sys.exit();
         elif event.type == pygame.MOUSEBUTTONDOWN:

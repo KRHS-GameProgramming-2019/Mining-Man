@@ -87,7 +87,7 @@ while True:
     image2 = pygame.image.load("images/ores/coal.png")
     rect2 = image2.get_rect(midtop = [940/2,0])
     image3 = pygame.image.load("images/ores/rubie.png")
-    rect3 = image.get_rect(midleft = [0,600/2])
+    rect3 = image.get_rect(midleft = [300,600])
     image4 = pygame.image.load("images/ores/IRON.png")
     rect4 = image.get_rect(midright = [940,600/2])
     image5 = pygame.image.load("images/ores/Amethest.png")
