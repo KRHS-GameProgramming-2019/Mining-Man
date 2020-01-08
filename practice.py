@@ -34,7 +34,10 @@ while True:
     pick.update()   
     
     screen.blit(image, imgRect)
+<<<<<<< HEAD
     screen.blit(coal, imgRect)
+=======
+>>>>>>> origin/master
     screen.blit(Guy.image, Guy.rect)
     screen.blit(pick.image, pick.rect)
     pygame.display.flip()
