@@ -28,7 +28,7 @@ class Ore():
      
      
         
-    def ballCollide(self, other):
+    def oreCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
                 if self.rect.left < other.rect.right:
