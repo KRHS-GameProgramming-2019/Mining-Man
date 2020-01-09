@@ -46,3 +46,13 @@ class Ore():
     
     
 
+# ~ image1 = pygame.image.load("images/Background/background.png")
+    # ~ rect1 = image1.get_rect(topleft = [0,0])
+    # ~ image2 = pygame.image.load("images/ores/coal.png")
+    # ~ rect2 = image2.get_rect(midtop = [940/2,0])
+    # ~ image3 = pygame.image.load("images/ores/rubie.png")
+    # ~ rect3 = image.get_rect(midleft = [300,600])
+    # ~ image4 = pygame.image.load("images/ores/IRON.png")
+    # ~ rect4 = image.get_rect(bottomright = [600,940])
+    # ~ image5 = pygame.image.load("images/ores/Amethest.png")
+    # ~ rect5 = image.get_rect(midbottom = [940/2,600])
