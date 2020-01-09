@@ -3,6 +3,9 @@
 from math import *
 from pygame import*
 
+
+
+
 class Ore():
     def __init__(self, image, pos):
         self.images = [pygame.image.load("images/Ores/coal.png"),
