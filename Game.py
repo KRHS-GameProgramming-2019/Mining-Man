@@ -1,11 +1,12 @@
 #Main game file
 import pygame, sys, math, random
 from Player import * 
-from titlescreen import *
 from Screens import *
 from Getters import *
 from Settings import *
 from options import *
+from practice import *
+from Ore import *
 pygame.init()
 
 size = [900, 640]
@@ -15,8 +16,6 @@ screen = pygame.display.set_mode(size)
 
 
 screens = "menu"
-
-
 
 
 
@@ -45,7 +44,7 @@ while True:
         pygame.display.flip()
                     
       
-    image = pygame.image.load("images/TitleScreen/f.jpg")
+    image = pygame.image.load("images/TitleScreen/f.png")
     imgRect = image.get_rect()
     while screens == "unicorn":
         for event in pygame.event.get():
@@ -80,20 +79,22 @@ while True:
         screen.blit(image, imgRect)
         pygame.display.flip()
                     
-                    
-                    
-                    
-       
-
-    image = pygame.image.load("images/Background/background.png")
-    imgRect = image.get_rect()
+    
     while screens == "game":
+        
         for event in pygame.event.get():
+            
             if event.type == pygame.QUIT:
                 sys.exit();
-                
+            
+        
 
         screen.blit(image, imgRect)
+        screen.blit(Ore.images, rect)
+        
+                
+
+        
         pygame.display.flip()
 
     
