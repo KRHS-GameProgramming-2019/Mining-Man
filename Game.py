@@ -11,13 +11,7 @@ pygame.init()
 
 size = [900, 640]
 screen = pygame.display.set_mode(size)
-
-
-
-
 screens = "menu"
-
-
 
 while True:
     
@@ -57,8 +51,6 @@ while True:
                 elif event.key == pygame.K_ESCAPE:
                     sys.exit();
                     
-                    
-                    
         screen.blit(image, imgRect)
         pygame.display.flip()  
       
@@ -90,7 +82,8 @@ while True:
         
 
         screen.blit(image, imgRect)
-        screen.blit(Ore.images, rect)
+        print(ores)
+        #screen.blit(Ore.images, rect)
         
                 
 

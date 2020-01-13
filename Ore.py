@@ -2,23 +2,30 @@
 
 from math import *
 from pygame import*
+from practice import *
+from Game import *
 
 
-
+ores = []
 
 class Ore():
-    def __init__(self, image, pos):
-        self.images = [pygame.image.load("images/Ores/coal.png"),
-                       pygame.image.load("images/Ores/IRON.png"),
-                       pygame.image.load("images/Ores/diamond.png"),
-                       pygame.image.load("images/Ores/Rubie.png"),
-                       pygame.image.load("images/Ores/Amethest.png")]
+    def __init__(self, kind, pos):
+        
+        if kind == "coal":
+            self.image = pygame.image.load("images/Ores/coal.png")
+        elif kind == "iron":
+            self.image = pygame.image.load("images/Ores/IRON.png")
+        elif kind == "ruby":
+            self.image = pygame.image.load("images/Ores/Rubie.png")
+        elif kind == "diamond":
+            self.image = pygame.image.load("images/Ores/diamond.png")
+        elif kind == "amethyst":
+            self.image = pygame.image.load("images/Ores/Amethest.png")
+        else:
+            self.image = pygame.image.load("images/Ores/dirt.png")
                        
-        self.rect = self.image.get_rect()
-        self.frame = 0
-        self.frameMax = len(self.images)-1 
-        self.image = self.images[self.frame]
-        self.rect = self.image.get_rect()
+            self.rect = self.image.get_rect()
+        ores.append(self)
         
         
         
@@ -49,13 +56,4 @@ class Ore():
     
     
 
-# ~ image1 = pygame.image.load("images/Background/background.png")
-    # ~ rect1 = image1.get_rect(topleft = [0,0])
-    # ~ image2 = pygame.image.load("images/ores/coal.png")
-    # ~ rect2 = image2.get_rect(midtop = [940/2,0])
-    # ~ image3 = pygame.image.load("images/ores/rubie.png")
-    # ~ rect3 = image.get_rect(midleft = [300,600])
-    # ~ image4 = pygame.image.load("images/ores/IRON.png")
-    # ~ rect4 = image.get_rect(bottomright = [600,940])
-    # ~ image5 = pygame.image.load("images/ores/Amethest.png")
-    # ~ rect5 = image.get_rect(midbottom = [940/2,600])
+
