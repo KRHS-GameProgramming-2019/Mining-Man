@@ -13,8 +13,10 @@ size = [900, 640]
 screen = pygame.display.set_mode(size)
 screens = "menu"
 
+clock = pygame.time.Clock()
+
 while True:
-    
+    #---------------------------Menu------------------------------------
     image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
     imgRect = image.get_rect()
     while screens == "menu":
@@ -32,12 +34,10 @@ while True:
                 elif event.key == pygame.K_u:
                     screens = "unicorn"
                     
-                    
-                    
         screen.blit(image, imgRect)
         pygame.display.flip()
                     
-      
+    #--------------------------Unicorn----------------------------------
     image = pygame.image.load("images/TitleScreen/f.png")
     imgRect = image.get_rect()
     while screens == "unicorn":
@@ -47,16 +47,13 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "menu"
-                
                 elif event.key == pygame.K_ESCAPE:
                     sys.exit();
                     
         screen.blit(image, imgRect)
         pygame.display.flip()  
-      
-      
-                    
-                    
+
+    #--------------------------Options----------------------------------             
     image = pygame.image.load("images/TitleScreen/titlescreenbackground-optionstest.png")
     imgRect = image.get_rect()
     while screens == "options":
@@ -67,28 +64,49 @@ while True:
                 if event.key == pygame.K_RETURN:
                     screens = "menu"
                     
-                    
         screen.blit(image, imgRect)
         pygame.display.flip()
-                    
-    
+                
+    #---------------------------Game------------------------------------
+    image = pygame.image.load("images/TitleScreen/tempbackground.png")
+    imgRect = image.get_rect()
+    pick = Pickaxe()
+    guy = Guy()
+    ores = []
+    oreTimer = 0
+    oreTimerMax = 60*3
     while screens == "game":
-        
         for event in pygame.event.get():
-            
             if event.type == pygame.QUIT:
                 sys.exit();
-            
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    sys.exit();
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if not pick.launched:
+                    pick.go(event.pos)
+                    print(event.pos)
+                #elif pick.launched:  #return before hits spot
+                #   pick.back()
         
-
+        if oreTimer < oreTimerMax:
+            oreTimer += 1
+        else:
+            oreTimer = 0
+            for ore in ores:
+                ore.moveOver()
+            for i in range(8):
+                ores += [Ore(None, [0, i*80])]
+        
+        pick.update()   
+        
         screen.blit(image, imgRect)
-        print(ores)
-        #screen.blit(Ore.images, rect)
-        
-                
-
-        
+        screen.blit(guy.image, guy.rect)
+        for ore in ores:
+            screen.blit(ore.image, ore.rect)
+        screen.blit(pick.image, pick.rect)
         pygame.display.flip()
-
+        print(clock.get_fps())
+        clock.tick(60)
     
 
