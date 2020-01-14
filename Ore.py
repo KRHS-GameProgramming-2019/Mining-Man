@@ -23,9 +23,10 @@ class Ore():
             elif num < 41 + 17:
                 kind = "iron"
             elif num < 58 + 18:
+                kind = "coal"
                 
             else:
-                    kind = "dirt"
+                kind = "dirt"
             
         if kind == "coal":
             self.image = pygame.image.load("images/Ores/coal.png")
