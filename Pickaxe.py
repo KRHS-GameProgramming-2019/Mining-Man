@@ -19,7 +19,7 @@ class Pickaxe():
         
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(bottomright = pos)
-        self.maxSpeed = -3
+        self.maxSpeed = -10
         self.startPos = pos
         
         self.speed = self.speedx, self.speedy = 0,0
@@ -30,7 +30,7 @@ class Pickaxe():
         self.direct = ""
         
         self.animationTimer = 0
-        self.animationTimerMax = 60/5
+        self.animationTimerMax = 60/10
         
     def go(self, pos):
         xdist = float(self.rect.centerx - pos[0])
