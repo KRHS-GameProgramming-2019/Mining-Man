@@ -10,19 +10,19 @@ class Ore():
         oreTypes = ["coal", "iron", "ruby", "diamond", "amethyst", "Emerald", "Rainbow"]
         if kind == None:
             num = random.randint(0,99)
-            if num < 2:
+            if num < 11:
                 kind = "Rainbow"
-            elif num < 2 + 7:
+            elif num < 11 + 11:
                 kind = "diamond"
-            elif num < 9 + 9:
+            elif num < 22 + 11:
                 kind = "Emerald"
-            elif num < 18 + 10:
+            elif num < 33 + 11:
                 kind = "amethyst"
-            elif num < 28 + 13:
+            elif num < 44 + 11:
                 kind = "ruby"
-            elif num < 41 + 17:
+            elif num < 55 + 11:
                 kind = "iron"
-            elif num < 58 + 18:
+            elif num < 66 + 11:
                 kind = "coal"
                 
             else:

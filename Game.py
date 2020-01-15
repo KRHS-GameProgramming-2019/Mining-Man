@@ -74,7 +74,7 @@ while True:
     guy = Guy()
     ores = []
     oreTimer = 0
-    oreTimerMax = 60*3
+    oreTimerMax = 60*10
     while screens == "game":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
