@@ -74,7 +74,7 @@ while True:
     guy = Guy()
     ores = []
     oreTimer = 0
-    oreTimerMax = 60*10
+    oreTimerMax = 60*3
     while screens == "game":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -99,6 +99,13 @@ while True:
                 ores += [Ore(None, [0, i*80])]
         
         pick.update()   
+        
+        if pick.canHit:
+            for ore in ores:
+                if ore.pickCollide(pick):
+                    ores.remove(ore)
+                    
+                
         
         screen.blit(image, imgRect)
         screen.blit(guy.image, guy.rect)

@@ -47,7 +47,7 @@ class Ore():
                        
         self.rect = self.image.get_rect(topleft = pos)
         
-        
+        self.living = True
         
         
     def getDist(self, other):
@@ -66,14 +66,18 @@ class Ore():
                 if self.rect.left < other.rect.right:
                     if self.rect.bottom > other.rect.top:
                         if self.rect.top < other.rect.bottom:
-                            if self.getDist(other) < self.rad + other.rad:
-                                if not self.didBounceX:
-                                    self.speedx = -self.speedx
-                                    self.didBounceX = True
-                                if not self.didBounceY:
-                                    self.speedy = -self.speedy
-                                    self.didBounceY = True
-                                return True
+                            self.living = False
+                            return True
+        return False
+        
+    def pickCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.centerx:
+                if self.rect.left < other.rect.centerx:
+                    if self.rect.bottom > other.rect.centery:
+                        if self.rect.top < other.rect.centery:
+                            self.living = False
+                            return True
         return False
     
     

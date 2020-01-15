@@ -33,19 +33,19 @@ while True:
         
     
     
-    for ball in balls:
-            if balls[-1].ballCollide(ball):
-                balls.remove(balls[-1])
-                break
+    # ~ for ball in balls:
+            # ~ if balls[-1].ballCollide(ball):
+                # ~ balls.remove(balls[-1])
+                # ~ break
             
-     for hittingBall in balls:
-        for hitBall in balls:
-            if hittingBall.ballCollide(hitBall):
-                if hittingBall.kind == "player":
-                    balls.remove(hitBall)
-                    kills += 1
-        for wall in walls:
-            hittingBall.wallTileCollide(wall)
+     # ~ for hittingBall in balls:
+        # ~ for hitBall in balls:
+            # ~ if hittingBall.ballCollide(hitBall):
+                # ~ if hittingBall.kind == "player":
+                    # ~ balls.remove(hitBall)
+                    # ~ kills += 1
+        # ~ for wall in walls:
+            # ~ hittingBall.wallTileCollide(wall)
     
     
     
