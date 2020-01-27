@@ -63,6 +63,9 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "menu"
+            
+                    
+                     
                     
         screen.blit(image, imgRect)
         pygame.display.flip()
@@ -95,7 +98,7 @@ while True:
             oreTimer = 0
             for ore in ores:
                 ore.moveOver()
-            for i in range(8):
+            for i in range(7):
                 ores += [Ore(None, [0, i*80])]
         
         pick.update()   
