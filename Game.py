@@ -63,6 +63,9 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "menu"
+            
+                    
+                     
                     
         screen.blit(image, imgRect)
         pygame.display.flip()
@@ -95,15 +98,22 @@ while True:
             oreTimer = 0
             for ore in ores:
                 ore.moveOver()
-            for i in range(8):
+            for i in range(7):
                 ores += [Ore(None, [0, i*80])]
         
         pick.update()   
         
+        if pick.canHit:
+            for ore in ores:
+                if ore.pickCollide(pick):
+                    ores.remove(ore)
+                    
+                
+        
         screen.blit(image, imgRect)
-        screen.blit(guy.image, guy.rect)
         for ore in ores:
             screen.blit(ore.image, ore.rect)
+        screen.blit(guy.image, guy.rect)
         screen.blit(pick.image, pick.rect)
         pygame.display.flip()
         print(clock.get_fps())

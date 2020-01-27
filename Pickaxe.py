@@ -19,7 +19,7 @@ class Pickaxe():
         
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(bottomright = pos)
-        self.maxSpeed = -10
+        self.maxSpeed = -15
         self.startPos = pos
         
         self.speed = self.speedx, self.speedy = 0,0
@@ -31,6 +31,8 @@ class Pickaxe():
         
         self.animationTimer = 0
         self.animationTimerMax = 60/10
+        
+        self.canHit = False
         
     def go(self, pos):
         xdist = float(self.rect.centerx - pos[0])
@@ -56,9 +58,8 @@ class Pickaxe():
             self.target = self.startPos
             self.direct = "back"
             self.launched = True
-    
-    
-    
+            self.canHit = True
+            
     def move(self):
         self.rx += self.speedx
         self.ry += self.speedy
@@ -70,10 +71,12 @@ class Pickaxe():
         self.move()
         
         if self.direct == "send":
+            self.animate2()
             if self.rect.centerx < self.target[0] and self.rect.centery < self.target[1]:
                 print("hit target", self.rect.centerx, self.rect.centery, self.target)
                 self.back()
         elif self.direct == "back":
+            self.canHit = False
             self.animate()
             if self.rx > self.target[0] and self.ry > self.target[1]:
                 self.rect = self.image.get_rect(bottomright = self.startPos)
@@ -97,4 +100,15 @@ class Pickaxe():
                 self.frame = 0
             else:
                 self.frame += 1
+            self.image = self.images[self.frame]
+            
+    def animate2(self):
+        self.animationTimer+= 1
+        if self.animationTimer > self.animationTimerMax:
+            self.animationTimer = 0
+            
+            if self.frame >= self.frameMax:
+                self.frame = 0
+            else:
+                self.frame += -1
             self.image = self.images[self.frame]

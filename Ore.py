@@ -10,19 +10,19 @@ class Ore():
         oreTypes = ["coal", "iron", "ruby", "diamond", "amethyst", "Emerald", "Rainbow"]
         if kind == None:
             num = random.randint(0,99)
-            if num < 2:
+            if num < 11:
                 kind = "Rainbow"
-            elif num < 2 + 7:
+            elif num < 11 + 11:
                 kind = "diamond"
-            elif num < 9 + 9:
+            elif num < 22 + 11:
                 kind = "Emerald"
-            elif num < 18 + 10:
+            elif num < 33 + 11:
                 kind = "amethyst"
-            elif num < 28 + 13:
+            elif num < 44 + 11:
                 kind = "ruby"
-            elif num < 41 + 17:
+            elif num < 55 + 11:
                 kind = "iron"
-            elif num < 58 + 18:
+            elif num < 66 + 11:
                 kind = "coal"
                 
             else:
@@ -47,7 +47,7 @@ class Ore():
                        
         self.rect = self.image.get_rect(topleft = pos)
         
-        
+        self.living = True
         
         
     def getDist(self, other):
@@ -57,7 +57,7 @@ class Ore():
         y2 = other.rect.centery
         return math.sqrt((x2-x1)**2 + (y2-y1)**2)
      
-    def moveOver(self):
+    def moveOver(self):     
         self.rect = self.rect.move([80,0])
         
     def oreCollide(self, other):
@@ -66,14 +66,18 @@ class Ore():
                 if self.rect.left < other.rect.right:
                     if self.rect.bottom > other.rect.top:
                         if self.rect.top < other.rect.bottom:
-                            if self.getDist(other) < self.rad + other.rad:
-                                if not self.didBounceX:
-                                    self.speedx = -self.speedx
-                                    self.didBounceX = True
-                                if not self.didBounceY:
-                                    self.speedy = -self.speedy
-                                    self.didBounceY = True
-                                return True
+                            self.living = False
+                            return True
+        return False
+        
+    def pickCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.centerx:
+                if self.rect.left < other.rect.centerx:
+                    if self.rect.bottom > other.rect.centery:
+                        if self.rect.top < other.rect.centery:
+                            self.living = False
+                            return True
         return False
     
     

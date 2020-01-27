@@ -31,7 +31,7 @@ while True:
             #elif pick.launched:  #return before hits spot
             #    pick.back()
         
-    
+
     pick.update()   
     
     screen.blit(image, imgRect)
