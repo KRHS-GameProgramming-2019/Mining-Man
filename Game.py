@@ -108,9 +108,9 @@ while True:
                 
         
         screen.blit(image, imgRect)
-        screen.blit(guy.image, guy.rect)
         for ore in ores:
             screen.blit(ore.image, ore.rect)
+        screen.blit(guy.image, guy.rect)
         screen.blit(pick.image, pick.rect)
         pygame.display.flip()
         print(clock.get_fps())

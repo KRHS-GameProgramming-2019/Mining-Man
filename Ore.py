@@ -57,7 +57,7 @@ class Ore():
         y2 = other.rect.centery
         return math.sqrt((x2-x1)**2 + (y2-y1)**2)
      
-    def moveOver(self):
+    def moveOver(self):     
         self.rect = self.rect.move([80,0])
         
     def oreCollide(self, other):

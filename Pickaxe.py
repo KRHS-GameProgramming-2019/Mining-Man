@@ -71,6 +71,7 @@ class Pickaxe():
         self.move()
         
         if self.direct == "send":
+            self.animate2()
             if self.rect.centerx < self.target[0] and self.rect.centery < self.target[1]:
                 print("hit target", self.rect.centerx, self.rect.centery, self.target)
                 self.back()
@@ -99,4 +100,15 @@ class Pickaxe():
                 self.frame = 0
             else:
                 self.frame += 1
+            self.image = self.images[self.frame]
+            
+    def animate2(self):
+        self.animationTimer+= 1
+        if self.animationTimer > self.animationTimerMax:
+            self.animationTimer = 0
+            
+            if self.frame >= self.frameMax:
+                self.frame = 0
+            else:
+                self.frame += -1
             self.image = self.images[self.frame]
