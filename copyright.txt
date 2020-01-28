@@ -24,3 +24,9 @@ open domain
 
 nicisbig. https://opengameart.org/content/gold
 
+
+Dirt:
+open domain
+
+KIIRA. https://opengameart.org/content/dirt-hand-painted-texture
+
