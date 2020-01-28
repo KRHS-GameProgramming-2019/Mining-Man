@@ -29,21 +29,21 @@ class Ore():
                 kind = "dirt"
             
         if kind == "coal":
-            self.image = pygame.image.load("images/Ores/coal.png")
+            self.image = pygame.image.load("images/Ores/coalDirt.png")
         elif kind == "iron":
-            self.image = pygame.image.load("images/Ores/IRON.png")
+            self.image = pygame.image.load("images/Ores/IRONDirt.png")
         elif kind == "ruby":
-            self.image = pygame.image.load("images/Ores/Rubie.png")
+            self.image = pygame.image.load("images/Ores/RubieDirt.png")
         elif kind == "diamond":
-            self.image = pygame.image.load("images/Ores/diamond.png")
+            self.image = pygame.image.load("images/Ores/diamondDirt.png")
         elif kind == "amethyst":
-            self.image = pygame.image.load("images/Ores/Amethest.png")
+            self.image = pygame.image.load("images/Ores/AmethestDirt.png")
         elif kind == "Emerald":
-            self.image = pygame.image.load("images/Ores/Emerald.png")
+            self.image = pygame.image.load("images/Ores/EmeraldDirt.png")
         elif kind == "Rainbow":
-            self.image = pygame.image.load("images/Ores/Rainbow.png")
+            self.image = pygame.image.load("images/Ores/RainbowDirt.png")
         elif kind == "dirt":
-            self.image = pygame.image.load("images/Ores/dirt.png")
+            self.image = pygame.image.load("images/Ores/BaseDirt.png")
                        
         self.rect = self.image.get_rect(topleft = pos)
         
