@@ -15,10 +15,29 @@ screens = "menu"
 
 clock = pygame.time.Clock()
 
+#Music code by caden
+pygame.mixer.init()
+songs = ["Sound/Music/0267.ogg"
+]
+songNum = 0
+maxSongNum = len(songs)-1
+pygame.mixer.music.load(songs[songNum])
+pygame.mixer.music.set_volume(0.4)
+
+
+
+
+
 while True:
     #---------------------------Menu------------------------------------
     image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
     imgRect = image.get_rect()
+    pygame.mixer.init()
+    pygame.mixer.music.load("Sound/Music/0267.ogg")
+    pygame.mixer.music.play(loops=-1, start=0.0)
+    
+    
+    
     while screens == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
