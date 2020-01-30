@@ -14,6 +14,8 @@ class Pickaxe():
                        pygame.image.load("images/Pickaxe/pickaxe7.png"),
                        pygame.image.load("images/Pickaxe/pickaxe8.png")
         ]
+        
+        
         self.frame = 0
         self.frameMax = len(self.images)-1 
         
