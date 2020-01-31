@@ -45,7 +45,6 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "game"
-                    import practice
                 elif event.key == pygame.K_o:
                     screens = "options"
                 elif event.key == pygame.K_ESCAPE:
@@ -135,7 +134,6 @@ while True:
         screen.blit(guy.image, guy.rect)
         screen.blit(pick.image, pick.rect)
         pygame.display.flip()
-        print(clock.get_fps())
         clock.tick(60)
     
 
