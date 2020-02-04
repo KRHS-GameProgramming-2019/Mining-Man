@@ -17,8 +17,7 @@ clock = pygame.time.Clock()
 
 #Music code by caden
 pygame.mixer.init()
-songs = [
-         "Sound/Music/space indication.ogg"
+songs = ["Sound/Music/spacecave.ogg"
 ]
 songNum = 0
 maxSongNum = len(songs)-1
@@ -34,7 +33,7 @@ while True:
     image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
-    pygame.mixer.music.load("Sound/Music/space indication.ogg")
+    pygame.mixer.music.load("Sound/Music/spacecave.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
     
     
