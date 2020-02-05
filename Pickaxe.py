@@ -16,8 +16,21 @@ class Pickaxe():
         ]
         
         
+        self.images2 = [pygame.image.load("images/Pickaxe/pickaxe1.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe8.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe7.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe6.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe5.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe4.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe3.png"),
+                       pygame.image.load("images/Pickaxe/pickaxe2.png")
+        ]
+        
         self.frame = 0
         self.frameMax = len(self.images)-1 
+        
+        self.frameMax2 = len(self.images2)-1 
+        self.image2 = self.images2[self.frame]
         
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(bottomright = pos)
@@ -75,7 +88,6 @@ class Pickaxe():
         if self.direct == "send":
             self.animate2()
             if self.rect.centerx < self.target[0] and self.rect.centery < self.target[1]:
-                print("hit target", self.rect.centerx, self.rect.centery, self.target)
                 self.back()
         elif self.direct == "back":
             self.canHit = False
@@ -94,7 +106,7 @@ class Pickaxe():
 
 
     def animate(self):
-        self.animationTimer+= 1
+        self.animationTimer+= 3
         if self.animationTimer > self.animationTimerMax:
             self.animationTimer = 0
             
@@ -105,12 +117,12 @@ class Pickaxe():
             self.image = self.images[self.frame]
             
     def animate2(self):
-        self.animationTimer+= 1
+        self.animationTimer+= 3
         if self.animationTimer > self.animationTimerMax:
             self.animationTimer = 0
             
-            if self.frame >= self.frameMax:
+            if self.frame >= self.frameMax2:
                 self.frame = 0
             else:
-                self.frame += -1
-            self.image = self.images[self.frame]
+                self.frame += 1
+            self.image = self.images2[self.frame]
