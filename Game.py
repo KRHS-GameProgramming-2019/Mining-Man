@@ -4,7 +4,7 @@ from Player import *
 from Screens import *
 from Getters import *
 from Settings import *
-from options import *
+from  options import *
 from practice import *
 from Ore import *
 pygame.init()
@@ -106,7 +106,6 @@ while True:
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if not pick.launched:
                     pick.go(event.pos)
-                    print(event.pos)
                 #elif pick.launched:  #return before hits spot
                 #   pick.back()
         
@@ -114,23 +113,28 @@ while True:
             oreTimer += 1
         else:
             oreTimer = 0
-            for ore in ores:
-                ore.moveOver()
+            for oreC in ores:
+                for ore in oreC:
+                    ore.moveOver()
             for i in range(7):
-                ores += [Ore(None, [0, i*80])]
+                oreCollumn = []
+                oreCollumn += [Ore(None, [0, i*80])]
+                ores += [oreCollumn]
         
         pick.update()   
         
         if pick.canHit:
-            for ore in ores:
-                if ore.pickCollide(pick):
-                    ores.remove(ore)
+            for oreC in ores:
+                for ore in oreC:
+                    if ore.pickCollide(pick):
+                        oreC.remove(ore)
                     
                 
         
         screen.blit(image, imgRect)
-        for ore in ores:
-            screen.blit(ore.image, ore.rect)
+        for oreC in ores:
+            for ore in oreC:
+                screen.blit(ore.image, ore.rect)
         screen.blit(guy.image, guy.rect)
         screen.blit(pick.image, pick.rect)
         pygame.display.flip()
