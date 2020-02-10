@@ -14,16 +14,16 @@ class Ore():
                 kind = "Rainbow"
             elif num < 11 + 11:
                 kind = "diamond"
-            elif num < 22 + 11:
-                kind = "Emerald"
-            elif num < 33 + 11:
-                kind = "amethyst"
-            elif num < 44 + 11:
-                kind = "ruby"
-            elif num < 55 + 11:
-                kind = "iron"
-            elif num < 66 + 11:
-                kind = "coal"
+            # ~ elif num < 22 + 11:
+                # ~ kind = "Emerald"
+            # ~ elif num < 33 + 11:
+                # ~ kind = "amethyst"
+            # ~ elif num < 44 + 11:
+                # ~ kind = "ruby"
+            # ~ elif num < 55 + 11:
+                # ~ kind = "iron"
+            # ~ elif num < 66 + 11:
+                # ~ kind = "coal"
                 
             else:
                 kind = "dirt"
@@ -48,7 +48,11 @@ class Ore():
         self.rect = self.image.get_rect(topleft = pos)
         
         self.living = True
+        self.kind = kind
         
+      
+    def __str__(self):
+        return self.kind + " at " + str(self.rect.left)+ ", " + str(self.rect.top)
         
     def getDist(self, other):
         x1 = self.rect.centerx
@@ -59,6 +63,9 @@ class Ore():
      
     def moveOver(self):     
         self.rect = self.rect.move([80,0])
+        
+    def moveDown(self):     
+        self.rect = self.rect.move([0,80])
         
     def oreCollide(self, other):
         if self != other:

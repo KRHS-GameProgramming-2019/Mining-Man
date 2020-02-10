@@ -116,18 +116,58 @@ while True:
             for oreC in ores:
                 for ore in oreC:
                     ore.moveOver()
+            oreCollumn = []
             for i in range(7):
-                oreCollumn = []
                 oreCollumn += [Ore(None, [0, i*80])]
-                ores += [oreCollumn]
+            ores += [oreCollumn]
         
         pick.update()   
         
+        deadBlocks = []
+        deadBlockCols = []
         if pick.canHit:
-            for oreC in ores:
-                for ore in oreC:
+            for col, oreC in enumerate(ores):
+                for y, ore in enumerate(oreC):
                     if ore.pickCollide(pick):
-                        oreC.remove(ore)
+                        deadBlocks += [ore]
+                        deadBlockCols += [col]
+                        kind = ore.kind
+                        for block in range(0,y):
+                                print("Block:", block)
+                                oreC[block].moveDown()
+                        if col+1 < len(ores) and ores[col+1][y].kind == kind:
+                            deadBlocks += [ores[col+1][y]]
+                            deadBlockCols += [col+1]
+                            for block in range(0,y):
+                                print("Block:", block)
+                                ores[col+1][block].moveDown()
+                        if col-1 > 0 and ores[col-1][y].kind == kind:
+                            deadBlocks += [ores[col-1][y]]
+                            deadBlockCols += [col-1]
+                            for block in range(0,y):
+                                print("Block:", block)
+                                ores[col-1][block].moveDown()
+                        if y+1 < len(oreC) and ores[col][y+1].kind == kind:
+                            deadBlocks += [ores[col][y+1]]
+                            deadBlockCols += [col]
+                            for block in range(0,y+1):
+                                print("Block:", block)
+                                oreC[block].moveDown()
+                        if y-1 > 0 and ores[col][y-1].kind == kind:
+                            deadBlocks += [ores[col][y-1]]
+                            deadBlockCols += [col]
+                            for block in range(0,y-1):
+                                print("Block:", block)
+                                oreC[block].moveDown()
+                            
+                        
+                        
+                            
+                        
+        for i, block in enumerate(deadBlocks):
+            print(block)
+            if block in ores[deadBlockCols[i]]:
+                ores[deadBlockCols[i]].remove(block)
                     
                 
         
