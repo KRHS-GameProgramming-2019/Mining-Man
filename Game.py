@@ -72,7 +72,7 @@ while True:
         pygame.display.flip()  
 
     #--------------------------Options----------------------------------             
-    image = pygame.image.load("images/TitleScreen/titlescreenbackground-optionstest.png")
+    image = pygame.image.load("images/TitleScreen/titlescreenbackground-options1.png")
     imgRect = image.get_rect()
     while screens == "options":
         for event in pygame.event.get():
