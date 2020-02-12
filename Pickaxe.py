@@ -26,6 +26,8 @@ class Pickaxe():
                        pygame.image.load("images/Pickaxe/pickaxe2.png")
         ]
         
+        self.sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
+        
         self.frame = 0
         self.frameMax = len(self.images)-1 
         
@@ -88,6 +90,7 @@ class Pickaxe():
         if self.direct == "send":
             self.animate2()
             if self.rect.centerx < self.target[0] and self.rect.centery < self.target[1]:
+                self.sound.play()
                 self.back()
         elif self.direct == "back":
             self.canHit = False

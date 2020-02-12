@@ -24,6 +24,8 @@ maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
 
+pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
+
 
 
 
