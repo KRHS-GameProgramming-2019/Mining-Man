@@ -137,18 +137,22 @@ while True:
                         for block in range(0,y):
                                 print("Block:", block)
                                 oreC[block].moveDown()
-                        if col+1 < len(ores) and ores[col+1][y].kind == kind:
-                            deadBlocks += [ores[col+1][y]]
-                            deadBlockCols += [col+1]
-                            for block in range(0,y):
-                                print("Block:", block)
-                                ores[col+1][block].moveDown()
-                        if col-1 > 0 and ores[col-1][y].kind == kind:
-                            deadBlocks += [ores[col-1][y]]
-                            deadBlockCols += [col-1]
-                            for block in range(0,y):
-                                print("Block:", block)
-                                ores[col-1][block].moveDown()
+                        if col+1 < len(ores) and y < len(ores[col+1]):
+                            print("col+1: ", col+1, y, "\t", len(ores), len(ores[col+1]))
+                            if ores[col+1][y].kind == kind:
+                                deadBlocks += [ores[col+1][y]]
+                                deadBlockCols += [col+1]
+                                for block in range(0,y):
+                                    print("Block:", block)
+                                    ores[col+1][block].moveDown()
+                        if col-1 > 0 and y < len(ores[col-1]):
+                            print("col-1: ", col-1, y, "\t", len(ores), len(ores[col-1]))
+                            if ores[col-1][y].kind == kind:
+                                deadBlocks += [ores[col-1][y]]
+                                deadBlockCols += [col-1]
+                                for block in range(0,y):
+                                    print("Block:", block)
+                                    ores[col-1][block].moveDown()
                         if y+1 < len(oreC) and ores[col][y+1].kind == kind:
                             deadBlocks += [ores[col][y+1]]
                             deadBlockCols += [col]
