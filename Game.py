@@ -4,7 +4,7 @@ from Player import *
 from Screens import *
 from Getters import *
 from Settings import *
-from  options import *
+from options import *
 from practice import *
 from Ore import *
 pygame.init()
