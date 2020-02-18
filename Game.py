@@ -71,7 +71,7 @@ while True:
         pygame.display.flip()
                 
     #---------------------------Game------------------------------------
-    image = pygame.image.load("images/TitleScreen/tempbackground.png")
+    image = py96game.image.load("images/TitleScreen/tempbackground.png")
     imgRect = image.get_rect()
     pick = Pickaxe()
     guy = Guy()
