@@ -7,6 +7,7 @@ ores = []
 
 class Ore():
     def __init__(self, kind=None, pos=[0]):
+        self.sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
         oreTypes = ["coal", "iron", "ruby", "diamond", "amethyst", "Emerald", "Rainbow"]
         if kind == None:
             num = random.randint(0,99)
@@ -14,16 +15,16 @@ class Ore():
                 kind = "Rainbow"
             elif num < 11 + 11:
                 kind = "diamond"
-            # ~ elif num < 22 + 11:
-                # ~ kind = "Emerald"
-            # ~ elif num < 33 + 11:
-                # ~ kind = "amethyst"
-            # ~ elif num < 44 + 11:
-                # ~ kind = "ruby"
-            # ~ elif num < 55 + 11:
-                # ~ kind = "iron"
-            # ~ elif num < 66 + 11:
-                # ~ kind = "coal"
+            elif num < 22 + 11:
+                kind = "Emerald"
+            elif num < 33 + 11:
+                kind = "amethyst"
+            elif num < 44 + 11:
+                kind = "ruby"
+            elif num < 55 + 11:
+                kind = "iron"
+            elif num < 66 + 11:
+                kind = "coal"
                 
             else:
                 kind = "dirt"
@@ -78,11 +79,13 @@ class Ore():
         return False
         
     def pickCollide(self, other):
+        self.sound.play()
         if self != other:
             if self.rect.right > other.rect.centerx:
                 if self.rect.left < other.rect.centerx:
                     if self.rect.bottom > other.rect.centery:
                         if self.rect.top < other.rect.centery:
+                            self.sound.play()
                             self.living = False
                             return True
         return False

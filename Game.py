@@ -4,7 +4,7 @@ from Player import *
 from Screens import *
 from Getters import *
 from Settings import *
-from  options import *
+from options import *
 from practice import *
 from Ore import *
 pygame.init()
@@ -23,6 +23,8 @@ songNum = 0
 maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
+
+pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
 
 
 
