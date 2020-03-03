@@ -32,7 +32,7 @@ pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
 
 while True:
     #---------------------------Menu------------------------------------
-    image = pygame.image.load("images/TitleScreen/titlescreenbackground.png")
+    image = pygame.image.load("images/background/black entrance.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
@@ -91,7 +91,7 @@ while True:
         pygame.display.flip()
                 
     #---------------------------Game------------------------------------
-    image = py96game.image.load("images/TitleScreen/tempbackground.png")
+    image = pygame.image.load("images/TitleScreen/tempbackground.png")
     imgRect = image.get_rect()
     pick = Pickaxe()
     guy = Guy()
