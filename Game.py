@@ -105,23 +105,33 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit();
+                if event.key ==pygame.K_SPACE:
+                    for oreC in ores:
+                        for ore in oreC:
+                            ore.moveOver()
+                    oreCollumn = []
+                    for i in range(7):
+                        oreCollumn += [Ore(None, [0, i*80])]
+                    ores += [oreCollumn]
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if not pick.launched:
                     pick.go(event.pos)
+                
+                            
                 #elif pick.launched:  #return before hits spot
                 #   pick.back()
         
-        if oreTimer < oreTimerMax:
-            oreTimer += 1
-        else:
-            oreTimer = 0
-            for oreC in ores:
-                for ore in oreC:
-                    ore.moveOver()
-            oreCollumn = []
-            for i in range(7):
-                oreCollumn += [Ore(None, [0, i*80])]
-            ores += [oreCollumn]
+        # ~ if oreTimer < oreTimerMax:
+            # ~ oreTimer += 1
+        # ~ else:
+            # ~ oreTimer = 0
+            # ~ for oreC in ores:
+                # ~ for ore in oreC:
+                    # ~ ore.moveOver()
+            # ~ oreCollumn = []
+            # ~ for i in range(7):
+                # ~ oreCollumn += [Ore(None, [0, i*80])]
+            # ~ ores += [oreCollumn]
         
         pick.update()   
         
@@ -137,7 +147,7 @@ while True:
                         for block in range(0,y):
                                 print("Block:", block)
                                 oreC[block].moveDown()
-                        if col+1 < len(ores) and y < len(ores[col+1]):
+                        if col+1 < len(ores):
                             print("col+1: ", col+1, y, "\t", len(ores), len(ores[col+1]))
                             if ores[col+1][y].kind == kind:
                                 deadBlocks += [ores[col+1][y]]
@@ -145,7 +155,7 @@ while True:
                                 for block in range(0,y):
                                     print("Block:", block)
                                     ores[col+1][block].moveDown()
-                        if col-1 > 0 and y < len(ores[col-1]):
+                        if col-1 > 0:
                             print("col-1: ", col-1, y, "\t", len(ores), len(ores[col-1]))
                             if ores[col-1][y].kind == kind:
                                 deadBlocks += [ores[col-1][y]]
