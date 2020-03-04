@@ -32,7 +32,7 @@ pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
 
 while True:
     #---------------------------Menu------------------------------------
-    image = pygame.image.load("images/background/black entrance.png")
+    image = pygame.image.load("images/background/caveentrance.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
@@ -53,6 +53,8 @@ while True:
                     sys.exit();
                 elif event.key == pygame.K_u:
                     screens = "unicorn"
+                elif event.key == pygame.K_n:
+                    screens = "night"
                     
         screen.blit(image, imgRect)
         pygame.display.flip()
@@ -89,6 +91,27 @@ while True:
                     
         screen.blit(image, imgRect)
         pygame.display.flip()
+        
+    #--------------------------Night Mode-------------------------------
+    image = pygame.image.load("images/background/black entrance.png")
+    imgRect = image.get_rect()
+    while screens == "night":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    screens = "menu"
+                elif event.key == pygame.K_ESCAPE:
+                    sys.exit();
+                    
+                    
+        screen.blit(image, imgRect)
+        pygame.display.flip()
+    
+    
+    
+     
                 
     #---------------------------Game------------------------------------
     image = pygame.image.load("images/TitleScreen/tempbackground.png")
