@@ -32,7 +32,7 @@ pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
 
 while True:
     #---------------------------Menu------------------------------------
-    image = pygame.image.load("images/background/black entrance.png")
+    image = pygame.image.load("images/background/caveentrance.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
@@ -53,6 +53,8 @@ while True:
                     sys.exit();
                 elif event.key == pygame.K_u:
                     screens = "unicorn"
+                elif event.key == pygame.K_n:
+                    screens = "night"
                     
         screen.blit(image, imgRect)
         pygame.display.flip()
@@ -89,6 +91,27 @@ while True:
                     
         screen.blit(image, imgRect)
         pygame.display.flip()
+        
+    #--------------------------Night Mode-------------------------------
+    image = pygame.image.load("images/background/black entrance.png")
+    imgRect = image.get_rect()
+    while screens == "night":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    screens = "menu"
+                elif event.key == pygame.K_ESCAPE:
+                    sys.exit();
+                    
+                    
+        screen.blit(image, imgRect)
+        pygame.display.flip()
+    
+    
+    
+     
                 
     #---------------------------Game------------------------------------
     image = pygame.image.load("images/TitleScreen/tempbackground.png")
@@ -105,14 +128,22 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit();
-                if event.key ==pygame.K_SPACE:
-                    for oreC in ores:
-                        for ore in oreC:
-                            ore.moveOver()
+                # ~ if event.key ==pygame.K_SPACE:
+                    # ~ for oreC in ores:
+                        # ~ for ore in oreC:
+                            # ~ ore.moveOver()
                     oreCollumn = []
                     for i in range(7):
-                        oreCollumn += [Ore(None, [0, i*80])]
+                        oreCollumn += [Ore(None, [0, (6*80)-(i*80)])]
                     ores += [oreCollumn]
+            
+                elif event.key == pygame.K_i:
+                    print ("--------------------")
+                    for i in ores:
+                        for j in i:
+                            print (str(j) + "\t")
+                        print ("\n")
+                    print ("--------------------")
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if not pick.launched:
                     pick.go(event.pos)
@@ -121,17 +152,17 @@ while True:
                 #elif pick.launched:  #return before hits spot
                 #   pick.back()
         
-        # ~ if oreTimer < oreTimerMax:
-            # ~ oreTimer += 1
-        # ~ else:
-            # ~ oreTimer = 0
-            # ~ for oreC in ores:
-                # ~ for ore in oreC:
-                    # ~ ore.moveOver()
-            # ~ oreCollumn = []
-            # ~ for i in range(7):
-                # ~ oreCollumn += [Ore(None, [0, i*80])]
-            # ~ ores += [oreCollumn]
+        if oreTimer < oreTimerMax:
+            oreTimer += 1
+        else:
+            oreTimer = 0
+            for oreC in ores:
+                for ore in oreC:
+                    ore.moveOver()
+            oreCollumn = []
+            for i in range(7):
+                oreCollumn += [Ore(None, [0, i*80])]
+            ores += [oreCollumn]
         
         pick.update()   
         
@@ -144,37 +175,48 @@ while True:
                         deadBlocks += [ore]
                         deadBlockCols += [col]
                         kind = ore.kind
-                        for block in range(0,y):
-                                print("Block:", block)
-                                oreC[block].moveDown()
-                        if col+1 < len(ores):
+                        oreY = ore.rect.y
+                        for block in oreC:
+                            if block.rect.y < oreY:
+                                print("Block:", str(block))
+                                block.moveDown()
+                        if col+1 < len(ores) and y < len(ores[col+1]):
                             print("col+1: ", col+1, y, "\t", len(ores), len(ores[col+1]))
                             if ores[col+1][y].kind == kind:
                                 deadBlocks += [ores[col+1][y]]
                                 deadBlockCols += [col+1]
-                                for block in range(0,y):
-                                    print("Block:", block)
-                                    ores[col+1][block].moveDown()
-                        if col-1 > 0:
+                                for block in ores[col+1]:
+                                    if block.rect.y < oreY:
+                                        print("Block:", str(block))
+                                        block.moveDown()
+                        if col-1 > 0 and y < len(ores[col-1]):
                             print("col-1: ", col-1, y, "\t", len(ores), len(ores[col-1]))
                             if ores[col-1][y].kind == kind:
                                 deadBlocks += [ores[col-1][y]]
                                 deadBlockCols += [col-1]
-                                for block in range(0,y):
-                                    print("Block:", block)
-                                    ores[col-1][block].moveDown()
+                                for block in ores[col-1]:
+                                    if block.rect.y < oreY:
+                                        print("Block:", str(block))
+                                        block.moveDown()
+                        #only check above collison
+                        
                         if y+1 < len(oreC) and ores[col][y+1].kind == kind:
                             deadBlocks += [ores[col][y+1]]
                             deadBlockCols += [col]
-                            for block in range(0,y+1):
-                                print("Block:", block)
-                                oreC[block].moveDown()
+                            for block in oreC:
+                                if block.rect.y < oreY:
+                                    print("Block:", str(block))
+                                    block.moveDown()
                         if y-1 > 0 and ores[col][y-1].kind == kind:
                             deadBlocks += [ores[col][y-1]]
                             deadBlockCols += [col]
-                            for block in range(0,y-1):
-                                print("Block:", block)
-                                oreC[block].moveDown()
+                            for block in oreC:
+                                if block.rect.y < oreY:
+                                    print("Block:", str(block))
+                                    block.moveDown()
+                                    block.moveDown()
+                                    
+                        break;
                             
                         
                         
