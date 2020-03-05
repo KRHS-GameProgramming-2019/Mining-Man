@@ -1,3 +1,4 @@
+#----------------------------Setup Code---------------------------------
 #Main game file
 import pygame, sys, math, random
 from Player import * 
@@ -29,6 +30,10 @@ pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
 
 
 
+    #------------------------Game Code----------------------------------
+
+
+
 
 while True:
     #---------------------------Menu------------------------------------
@@ -37,8 +42,6 @@ while True:
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
-    
-    
     
     while screens == "menu":
         for event in pygame.event.get():
@@ -85,9 +88,6 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "menu"
-            
-                    
-                     
                     
         screen.blit(image, imgRect)
         pygame.display.flip()
@@ -105,14 +105,8 @@ while True:
                 elif event.key == pygame.K_ESCAPE:
                     sys.exit();
                     
-                    
         screen.blit(image, imgRect)
         pygame.display.flip()
-    
-    
-    
-     
-                
     #---------------------------Game------------------------------------
     image = pygame.image.load("images/TitleScreen/tempbackground.png")
     imgRect = image.get_rect()
@@ -219,16 +213,12 @@ while True:
                         break;
                             
                         
-                        
-                            
-                        
         for i, block in enumerate(deadBlocks):
             print(block)
             if block in ores[deadBlockCols[i]]:
                 ores[deadBlockCols[i]].remove(block)
                     
                 
-        
         screen.blit(image, imgRect)
         for oreC in ores:
             for ore in oreC:
