@@ -37,7 +37,7 @@ pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
 
 while True:
     #---------------------------Menu------------------------------------
-    image = pygame.image.load("images/background/caveentrance.png")
+    image = pygame.image.load("images/background/caveentrancea.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
