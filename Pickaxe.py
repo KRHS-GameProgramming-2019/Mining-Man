@@ -63,6 +63,7 @@ class Pickaxe():
             self.target = pos
             self.direct = "send"
             self.launched = True
+
     
     def back(self):
         xdist = float(self.rect.centerx - self.startPos[0])
