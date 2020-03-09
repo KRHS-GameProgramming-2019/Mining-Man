@@ -157,7 +157,6 @@ while True:
                 sys.exit();
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-<<<<<<< HEAD
                     screens = "select"
                 
                 # ~ if event.key ==pygame.K_SPACE:
