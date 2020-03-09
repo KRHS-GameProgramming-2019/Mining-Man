@@ -68,6 +68,9 @@ class Ore():
     def moveDown(self):     
         self.rect = self.rect.move([0,80])
         
+    def kill(self):
+        self.living = False
+    
     def oreCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
