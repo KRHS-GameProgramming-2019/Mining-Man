@@ -30,7 +30,7 @@ pickaxe_sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
 
 
 
-    #------------------------Game Code----------------------------------
+#----------------------------Game Code----------------------------------
 
 
 
@@ -59,9 +59,9 @@ while True:
                 elif event.key == pygame.K_n:
                     screens = "night"
                     
+                    
         screen.blit(image, imgRect)
         pygame.display.flip()
-                    
     #--------------------------Unicorn----------------------------------
     image = pygame.image.load("images/TitleScreen/f.png")
     imgRect = image.get_rect()
@@ -77,7 +77,6 @@ while True:
                     
         screen.blit(image, imgRect)
         pygame.display.flip()  
-
     #--------------------------Options----------------------------------             
     image = pygame.image.load("images/TitleScreen/titlescreenbackground-options1.png")
     imgRect = image.get_rect()
@@ -86,12 +85,48 @@ while True:
             if event.type == pygame.QUIT:
                 sys.exit();
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
+                if event.key == pygame.K_o:
                     screens = "menu"
-                    
+                elif event.key == pygame.K_ESCAPE:
+                    screens = "menu"
+        
         screen.blit(image, imgRect)
         pygame.display.flip()
+    #--------------------------Game Selection-----------------------------
+    image = pygame.image.load("images/TitleScreen/tempselection.png")
+    imgRect = image.get_rect()
+    while screens == "select":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_o:
+                    screens = "options"
+                elif event.key == pygame.K_ESCAPE:
+                    screens = "game"
+                elif event.key == pygame.K_RETURN:
+                    screens = "menu"
+        screen.blit(image, imgRect)
+        pygame.display.flip()
+                    
+    #--------------------------Game Options-----------------------------
+    image = pygame.image.load("images/TitleScreen/titlescreenbackground-options1.png")
+    imgRect = image.get_rect()
+    while screens == "gameoptions":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_o:
+                    screens = "options"
+                elif event.key == pygame.K_ESCAPE:
+                    screens = "game"
+                elif event.key == pygame.K_RETURN:
+                    screens = "menu"
+         
         
+        screen.blit(image, imgRect)
+        pygame.display.flip()
     #--------------------------Night Mode-------------------------------
     image = pygame.image.load("images/background/black entrance.png")
     imgRect = image.get_rect()
@@ -101,10 +136,13 @@ while True:
                 sys.exit();
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
-                    screens = "menu"
+                    screens = "game"
                 elif event.key == pygame.K_ESCAPE:
-                    sys.exit();
-                    
+                    screens = "menu"
+                elif event.key == pygame.K_o:
+                    screens = "options"
+                
+                
         screen.blit(image, imgRect)
         pygame.display.flip()
     #---------------------------Game------------------------------------
@@ -121,7 +159,8 @@ while True:
                 sys.exit();
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    sys.exit();
+                    screens = "select"
+                
                 # ~ if event.key ==pygame.K_SPACE:
                     # ~ for oreC in ores:
                         # ~ for ore in oreC:
