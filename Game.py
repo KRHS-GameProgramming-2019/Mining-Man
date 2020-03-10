@@ -101,7 +101,7 @@ while True:
                 sys.exit();
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_o:
-                    screens = "options"
+                    screens = "gameoptions"
                 elif event.key == pygame.K_ESCAPE:
                     screens = "game"
                 elif event.key == pygame.K_RETURN:
@@ -118,11 +118,11 @@ while True:
                 sys.exit();
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_o:
-                    screens = "options"
+                    screens = "select"
                 elif event.key == pygame.K_ESCAPE:
-                    screens = "game"
+                    screens = "select"
                 elif event.key == pygame.K_RETURN:
-                    screens = "menu"
+                    screens = "select"
          
         
         screen.blit(image, imgRect)
