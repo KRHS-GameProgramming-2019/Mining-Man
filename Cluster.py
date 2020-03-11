@@ -22,20 +22,22 @@ class Cluster():
         
         currKind = None
         vane = []
-        for ore in self.ores[-1]:
-            if not currKind:            #start of column
-                currKind = ore.kind
-                vane += [ore]
-                print("starting " + currKind)
-            elif ore.kind == currKind:  #same block below last block
-                vane += [ore]
-                print("Adding " + currKind)
-            else:                       #different block below last block
-                self.vanes += [vane]         
-                vane = [ore]
-                currKind = ore.kind
-                print("Starting new " + currKind)
-        self.vanes += [vane]
+        if len(self.ores) >= 1:             #first row
+            for ore in self.ores[-1]:
+                if not currKind:            #start of column
+                    currKind = ore.kind
+                    vane += [ore]
+                    print("starting " + currKind)
+                elif ore.kind == currKind:  #same block below last block
+                    vane += [ore]
+                    print("Adding " + currKind)
+                else:                       #different block below last block
+                    self.vanes += [vane]         
+                    vane = [ore]
+                    currKind = ore.kind
+                    print("Starting new " + currKind)
+            self.vanes += [vane]
+        
         
     def __str__(self):
         out = "--------------------\n"
@@ -45,13 +47,11 @@ class Cluster():
             out += "\n"
         out += ">>>>>>\n"
         for vane in self.vanes:
-            out += vane[0].kind + " ore, size: " + str(len(vane)) + "\n"
-        out += "--------------------\n"
+            if len(vane) > 0:
+                out += vane[0].kind + " ore, size: " + str(len(vane)) + "\n"
+        out += "--------------------\n\n"
         return out
         
-        
-    def moveDown(self):     
-        self.rect = self.rect.move([0,80])
         
     def pickCollide(self, other):
         for oreC in self.ores:                  #look through ore columns
@@ -64,12 +64,28 @@ class Cluster():
                 
     def update(self):
         self.killOres()
+        # ~ y = 0
+        # ~ for rowNum, oreC in enumerate(self.ores):
+            # ~ for oreNum, ore in enumerate(oreC):
+                
+            
+        
+                 
+                
         
     def killOres(self):
-        for oreC in self.ores:
-            for ore in oreC:
-                if not ore.living:
+        for rowNum, oreC in enumerate(self.ores):
+            for oreNum, ore in enumerate(oreC):
+                if not ore.living:              #found dead ore
+                    print("removing: " + str(ore))
                     oreC.remove(ore)
+                    for i in range(oreNum, len(oreC)):
+                        oreC[i].moveDown()
+                    
+                    
+                    
+                    
+                    
     
     
 
