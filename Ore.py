@@ -67,6 +67,9 @@ class Ore():
      
     def moveOver(self):     
         self.rect = self.rect.move([80,0])
+    
+    def moveBack(self):     
+        self.rect = self.rect.move([-80,0])
         
     def moveDown(self):     
         self.rect = self.rect.move([0,80])

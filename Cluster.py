@@ -70,6 +70,22 @@ class Cluster():
     def update(self):
         if self.killOres():
             self.findVanes()
+        for colNum, oreC in enumerate(self.ores):
+            if colNum > 0 and len(oreC) == 0:
+                colCount = colNum-1
+                print (colNum, colCount)
+                while colCount >= 0:
+                    for ore in self.ores[colCount]:
+                        ore.moveBack()
+                    colCount -=1
+                self.ores.remove(oreC)
+                print("Moving Back")
+            elif len(oreC) == 0:
+                self.ores.remove(oreC)
+                print("Removing Last ")
+            
+                
+                
         # ~ y = 0
         # ~ for rowNum, oreC in enumerate(self.ores):
             # ~ for oreNum, ore in enumerate(oreC):
