@@ -19,11 +19,16 @@ class Cluster():
         for i in range(7):
             oreCollumn += [Ore(None, [0, (6*80)-(i*80)])]
         self.ores += [oreCollumn]
-        
+        self.findVanes()
+       
+    def findVanes(self):
+        self.vanes=[]
         currKind = None
-        vane = []
-        if len(self.ores) >= 1:             #first row
-            for ore in self.ores[-1]:
+        
+        #if len(self.ores) >= 1:             #first row
+        for oreC in self.ores:
+            vane = []
+            for ore in oreC:
                 if not currKind:            #start of column
                     currKind = ore.kind
                     vane += [ore]
@@ -63,10 +68,12 @@ class Cluster():
                                 vaneOre.kill()
                 
     def update(self):
-        self.killOres()
+        if self.killOres():
+            self.findVanes()
         # ~ y = 0
         # ~ for rowNum, oreC in enumerate(self.ores):
             # ~ for oreNum, ore in enumerate(oreC):
+        
                 
             
         
@@ -74,14 +81,16 @@ class Cluster():
                 
         
     def killOres(self):
+        didKill = False
         for rowNum, oreC in enumerate(self.ores):
             for oreNum, ore in enumerate(oreC):
                 if not ore.living:              #found dead ore
                     print("removing: " + str(ore))
                     oreC.remove(ore)
+                    didKill = True
                     for i in range(oreNum, len(oreC)):
                         oreC[i].moveDown()
-                    
+        return didKill
                     
                     
                     
