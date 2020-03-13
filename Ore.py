@@ -45,6 +45,9 @@ class Ore():
             self.image = pygame.image.load("images/Ores/RainbowDirt.png")
         elif kind == "dirt":
             self.image = pygame.image.load("images/Ores/BaseDirt.png")
+        elif kind == "dead":
+            self.image = pygame.image.load("images/Ores/Dead.png")
+                       
                        
         self.rect = self.image.get_rect(topleft = pos)
         
@@ -64,17 +67,25 @@ class Ore():
      
     def moveOver(self):     
         self.rect = self.rect.move([80,0])
+    
+    def moveBack(self):     
+        self.rect = self.rect.move([-80,0])
         
     def moveDown(self):     
         self.rect = self.rect.move([0,80])
+    
+    def moveUp(self):     
+        self.rect = self.rect.move([0,-80])
         
+    def kill(self):
+        self.living = False
+    
     def oreCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
                 if self.rect.left < other.rect.right:
                     if self.rect.bottom > other.rect.top:
                         if self.rect.top < other.rect.bottom:
-                            self.living = False
                             return True
         return False
         

@@ -36,7 +36,7 @@ class Pickaxe():
         
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(bottomright = pos)
-        self.maxSpeed = -15
+        self.maxSpeed = -15*5
         self.startPos = pos
         
         self.speed = self.speedx, self.speedy = 0,0
@@ -63,6 +63,7 @@ class Pickaxe():
             self.target = pos
             self.direct = "send"
             self.launched = True
+
     
     def back(self):
         xdist = float(self.rect.centerx - self.startPos[0])
