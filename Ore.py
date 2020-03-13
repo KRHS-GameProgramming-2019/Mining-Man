@@ -54,9 +54,10 @@ class Ore():
         self.living = True
         self.kind = kind
         
+        self.vane = None
       
     def __str__(self):
-        return self.kind + " at " + str(self.rect.left)+ ", " + str(self.rect.top)
+        return self.kind + " at " + str(self.rect.left)+ ", " + str(self.rect.top) + " vane with " + str(len(self.vane)-1) + " other blockS"
         
     def getDist(self, other):
         x1 = self.rect.centerx

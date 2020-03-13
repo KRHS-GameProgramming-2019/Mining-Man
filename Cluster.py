@@ -23,25 +23,68 @@ class Cluster():
        
     def findVanes(self):
         self.vanes=[]
-        currKind = None
         
         #if len(self.ores) >= 1:             #first row
-        for oreC in self.ores:
+        for colNum, oreC in enumerate(self.ores):
             vane = []
-            for ore in oreC:
+            currKind = None
+            for oreNum, ore in enumerate(oreC):
                 if not currKind:            #start of column
-                    currKind = ore.kind
-                    vane += [ore]
-                    print("starting " + currKind)
-                elif ore.kind == currKind:  #same block below last block
-                    vane += [ore]
-                    print("Adding " + currKind)
+                    # ~ print("Col Num: ", colNum)
+                    if colNum > 0 and oreNum < len(self.ores[colNum-1]):
+                        if self.ores[colNum-1][oreNum].kind == ore.kind:
+                            self.ores[colNum-1][oreNum].vane += [ore]
+                            ore.vane = self.ores[colNum-1][oreNum].vane
+                            vane = ore.vane
+                            currKind = ore.kind
+                            # ~ print("adding " + currKind + " to old vane")
+                        else:
+                            currKind = ore.kind
+                            vane += [ore]
+                            ore.vane = vane
+                            # ~ print("starting " + currKind)
+                    else:
+                        currKind = ore.kind
+                        vane += [ore]
+                        ore.vane = vane
+                        # ~ print("starting " + currKind)
+                elif ore.kind == currKind:  #same block above last block
+                    if colNum > 0 and oreNum < len(self.ores[colNum-1]):
+                        if self.ores[colNum-1][oreNum].kind == ore.kind:
+                            vane += [ore]
+                            self.ores[colNum-1][oreNum].vane += vane
+                            ore.vane = self.ores[colNum-1][oreNum].vane
+                            vane = ore.vane
+                        else: 
+                            vane += [ore]
+                            ore.vane = vane
+                    else:
+                        vane += [ore]
+                        ore.vane = vane
+                    # ~ print("Adding " + currKind)
                 else:                       #different block below last block
-                    self.vanes += [vane]         
-                    vane = [ore]
-                    currKind = ore.kind
-                    print("Starting new " + currKind)
-            self.vanes += [vane]
+                    if vane not in self.vanes: 
+                        self.vanes += [vane] 
+                    vane = []    
+                    if colNum > 0 and oreNum < len(self.ores[colNum-1]):
+                        if self.ores[colNum-1][oreNum].kind == ore.kind:
+                            self.ores[colNum-1][oreNum].vane += [ore]
+                            ore.vane = self.ores[colNum-1][oreNum].vane
+                            vane = ore.vane
+                            currKind = ore.kind
+                            # ~ print("adding " + currKind + " to old vane")
+                        else:
+                            currKind = ore.kind
+                            vane += [ore]
+                            ore.vane = vane
+                            # ~ print("starting new " + currKind)
+                    else:
+                        currKind = ore.kind
+                        vane += [ore]
+                        ore.vane = vane
+                        # ~ print("starting new " + currKind)
+            if vane not in self.vanes: 
+                self.vanes += [vane]
         
         
     def __str__(self):
@@ -68,8 +111,7 @@ class Cluster():
                                 vaneOre.kill()
                 
     def update(self):
-        if self.killOres():
-            self.findVanes()
+        didKill = self.killOres()
         for colNum, oreC in enumerate(self.ores):
             if colNum > 0 and len(oreC) == 0:
                 colCount = colNum-1
@@ -83,6 +125,8 @@ class Cluster():
             elif len(oreC) == 0:
                 self.ores.remove(oreC)
                 print("Removing Last ")
+        if didKill:
+            self.findVanes()
             
                 
                 
