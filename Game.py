@@ -151,6 +151,8 @@ while True:
     pick = Pickaxe()
     guy = Guy()
     cluster = Cluster()
+    oreTimer = 0              
+    oreTimerMax = 3*60 # 3 seconds
     while screens == "game":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -185,13 +187,7 @@ while True:
             oreTimer += 1
         else:
             oreTimer = 0
-            for oreC in ores:
-                for ore in oreC:
-                    ore.moveOver()
-            oreCollumn = []
-            for i in range(7):
-                oreCollumn += [Ore(None, [0, i*80])]
-            ores += [oreCollumn]
+            cluster.addCol()
         #-------End Auto Ores----------------#
         
         
