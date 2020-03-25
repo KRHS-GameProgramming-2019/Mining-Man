@@ -1,4 +1,4 @@
-#Main game fileabcd
+#Main game file
 import pygame, sys, math, random
 from Player import * 
 from Screens import *
