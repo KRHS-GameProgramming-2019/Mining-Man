@@ -12,7 +12,7 @@ class Ore():
         if kind == None:
             num = random.randint(0,99)
             if num < 11:
-                kind = "Rainbow"
+                kind = "rainbow"
             elif num < 11 + 11:
                 kind = "diamond"
             elif num < 22 + 11:

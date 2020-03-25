@@ -151,6 +151,8 @@ while True:
     pick = Pickaxe()
     guy = Guy()
     cluster = Cluster()
+    oreTimer = 0              
+    oreTimerMax = 3*60 # 3 seconds
     while screens == "game":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -164,10 +166,10 @@ while True:
                         # ~ for ore in oreC:
                             # ~ ore.moveOver()
                  
-                #------Manual Ores----------#
-                if event.key ==pygame.K_SPACE:
-                    cluster.addCol()
-                #-------End Manual Ores----------------#
+                # ~ #------Manual Ores----------#
+                # ~ if event.key ==pygame.K_SPACE:
+                    # ~ cluster.addCol()
+                # ~ #-------End Manual Ores----------------#
 
             
                 elif event.key == pygame.K_i:
@@ -180,19 +182,13 @@ while True:
                 #elif pick.launched:  #return before hits spot
                 #   pick.back()
         
-        # ~ #----------Auto Ores----------------#
-        # ~ if oreTimer < oreTimerMax:
-            # ~ oreTimer += 1
-        # ~ else:
-            # ~ oreTimer = 0
-            # ~ for oreC in ores:
-                # ~ for ore in oreC:
-                    # ~ ore.moveOver()
-            # ~ oreCollumn = []
-            # ~ for i in range(7):
-                # ~ oreCollumn += [Ore(None, [0, i*80])]
-            # ~ ores += [oreCollumn]
-        # ~ #-------End Auto Ores----------------#
+        #----------Auto Ores----------------#
+        if oreTimer < oreTimerMax:
+            oreTimer += 1
+        else:
+            oreTimer = 0
+            cluster.addCol()
+        #-------End Auto Ores----------------#
         
         
         pick.update()
