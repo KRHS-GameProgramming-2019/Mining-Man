@@ -1,2 +1,7 @@
 *.pyc
 *.cpython-37.pyc~origin_master
+*.pyc*
+/Game.cpython-37.pyc.46649600
+/Game.cpython-37.pyc.58642688
+/Game.cpython-37.pyc.59363584
+/Pickaxe.cpython-37.pyc.56804800
