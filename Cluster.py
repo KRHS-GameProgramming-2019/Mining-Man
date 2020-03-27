@@ -153,8 +153,8 @@ class Cluster():
         return didKill
 	
 	
-	def endgame (self):
-	    game = False
+	# ~ def endgame (self):    IM ANGRY BECAUSE INDENTS ON MY SCREEN ARNT WORKING
+	    # ~ game = False
 		
                     
                     
