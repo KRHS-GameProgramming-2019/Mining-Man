@@ -101,11 +101,11 @@ class Ore():
                             return True
         return False
         
-	def endgame(self):
-		game = False
-							
-	
-	
-	# ~ def endgame (self):
-		# ~ game = False
+    def endgame(self):
+        game = False
+                            
+    
+    
+    # ~ def endgame (self):
+        # ~ game = False
 
