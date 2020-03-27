@@ -151,6 +151,11 @@ class Cluster():
                     for i in range(oreNum, len(oreC)):
                         oreC[i].moveDown()
         return didKill
+	
+	
+	def endgame (self):
+	    game = False
+		
                     
                     
                     

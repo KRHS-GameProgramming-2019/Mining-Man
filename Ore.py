@@ -100,5 +100,12 @@ class Ore():
                             self.living = False
                             return True
         return False
-
+        
+	def endgame(self):
+		game = False
+							
+	
+	
+	# ~ def endgame (self):
+		# ~ game = False
 
