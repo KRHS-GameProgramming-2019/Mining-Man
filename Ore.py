@@ -8,7 +8,7 @@ ores = []
 class Ore():
     def __init__(self, kind=None, pos=[0]):
         self.sound = pygame.mixer.Sound('Sound/pickaxe/test.ogg')
-        oreTypes = ["coal", "iron", "ruby", "diamond", "amethyst", "Emerald", "Rainbow"]
+        oreTypes = ["coal", "iron", "ruby", "diamond", "amethyst", "emerald", "rainbow"]
         if kind == None:
             num = random.randint(0,99)
             if num < 11:
@@ -16,7 +16,7 @@ class Ore():
             elif num < 11 + 11:
                 kind = "diamond"
             elif num < 22 + 11:
-                kind = "Emerald"
+                kind = "emerald"
             elif num < 33 + 11:
                 kind = "amethyst"
             elif num < 44 + 11:
@@ -25,7 +25,6 @@ class Ore():
                 kind = "iron"
             elif num < 66 + 11:
                 kind = "coal"
-                
             else:
                 kind = "dirt"
             
@@ -39,9 +38,9 @@ class Ore():
             self.image = pygame.image.load("images/Ores/diamondDirt.png")
         elif kind == "amethyst":
             self.image = pygame.image.load("images/Ores/AmethestDirt.png")
-        elif kind == "Emerald":
+        elif kind == "emerald":
             self.image = pygame.image.load("images/Ores/EmeraldDirt.png")
-        elif kind == "Rainbow":
+        elif kind == "rainbow":
             self.image = pygame.image.load("images/Ores/RainbowDirt.png")
         elif kind == "dirt":
             self.image = pygame.image.load("images/Ores/BaseDirt.png")
