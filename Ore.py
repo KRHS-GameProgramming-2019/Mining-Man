@@ -100,7 +100,5 @@ class Ore():
                             self.living = False
                             return True
         return False
-    
-    
 
 
