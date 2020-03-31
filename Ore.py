@@ -103,7 +103,11 @@ class Ore():
         
     def endgame(self):
         game = False
-                            
+    
+		
+	
+        
+       
     
     
     # ~ def endgame (self):
