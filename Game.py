@@ -144,6 +144,24 @@ while True:
                 
         screen.blit(image, imgRect)
         pygame.display.flip()
+        
+    #---------------------------end game----------------------------------#
+    image = pygame.image.load("images/background/gameover.png")
+    imgRect = image.get_rect()
+    while screens == "gameover":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    screens = "game"
+                elif event.key == pygame.K_ESCAPE:
+                    screens = "menu"
+        screen.blit(image, imgRect)
+        pygame.display.flip()
+		
+        
+        
     #---------------------------Game------------------------------------
     image = pygame.image.load("images/TitleScreen/tempbackground.png")
     imgRect = image.get_rect()
@@ -164,7 +182,7 @@ while True:
                     # ~ for oreC in ores:
                         # ~ for ore in oreC:
                             # ~ ore.moveOver()
-                 
+   
                 # ~ #------Manual Ores----------#
                 # ~ if event.key ==pygame.K_SPACE:
                     # ~ cluster.addCol()
@@ -188,8 +206,7 @@ while True:
             oreTimer = 0
             cluster.addCol()
         #-------End Auto Ores----------------#
-        
-        
+ 
         pick.update()
         
         if pick.canHit:
@@ -197,6 +214,7 @@ while True:
                        
                         
         cluster.update()
+        
                     
                 
         
