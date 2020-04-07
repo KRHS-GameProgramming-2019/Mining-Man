@@ -6,6 +6,7 @@ from Getters import *
 from Settings import *
 from options import *
 from practice import *
+from Button import *
 from Ore import *
 from Cluster import *
 pygame.init()
@@ -41,11 +42,26 @@ while True:
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
+    playButton=Button("test", [100,100])
+    optionsButton=Button("test", [100, 300])
     
     while screens == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit();
+            elif event.type == pygame.MOUSEMOTION:
+                playButton.update(event.pos, event.buttons)
+                optionsButton.update(event.pos, event.buttons)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                playButton.click(event.pos)
+                optionsButton.click(event.pos)
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if playButton.click(event.pos):
+                    screens = "game"
+                if optionsButton.click(event.pos):
+                    screens = "options"
+            
+            
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "game"
@@ -60,6 +76,8 @@ while True:
                     
                     
         screen.blit(image, imgRect)
+        screen.blit(playButton.image, playButton.rect)
+        screen.blit(optionsButton.image, optionsButton.rect)
         pygame.display.flip()
     #--------------------------Unicorn----------------------------------
     # ~ image = pygame.image.load("images/TitleScreen/f.png")
