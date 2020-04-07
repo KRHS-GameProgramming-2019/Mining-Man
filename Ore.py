@@ -90,20 +90,21 @@ class Ore():
 		return False
 		
 	def pickCollide(self, other):
-		self.sound.play()
 		if self != other:
+			self.sound.play()
 			if self.rect.right > other.rect.centerx:
 				if self.rect.left < other.rect.centerx:
 					if self.rect.bottom > other.rect.centery:
 						if self.rect.top < other.rect.centery:
-							self.sound.play()
 							self.living = False
 							return True
 		return False
 		
 	def endgame(self):
-		if self > man:
-			game = False #ignore for now
+		if self > [800, 0]:
+			screens == "gameover" #ignore for now
+			
+	
 	
 			
 	 
