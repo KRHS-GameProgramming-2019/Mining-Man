@@ -20,6 +20,7 @@ class Cluster():
             oreCollumn += [Ore(None, [0, (6*80)-(i*80)])]
         self.ores += [oreCollumn]
         self.findVanes()
+        
        
     def findVanes(self):
         self.vanes=[]
@@ -27,6 +28,8 @@ class Cluster():
         #if len(self.ores) >= 1:             #first row
         for colNum, oreC in enumerate(self.ores):
             vane = []
+            if colNum > 12:
+                screens == endgame
             currKind = None
             for oreNum, ore in enumerate(oreC):
                 if not currKind:            #start of column
@@ -153,8 +156,10 @@ class Cluster():
         return didKill
 	
 	
-	# ~ def endgame (self):    IM ANGRY BECAUSE INDENTS ON MY SCREEN ARNT WORKING
-	    # ~ game = False
+    # ~ def endgame (self):   
+        # ~ for colNum, oreC in enumerate(self.ores):
+            # ~ if colNum > 2:
+                 # ~ screens == endgame
 		
                     
                     

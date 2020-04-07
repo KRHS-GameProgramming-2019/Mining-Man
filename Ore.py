@@ -100,21 +100,7 @@ class Ore():
 							return True
 		return False
 		
-	def endgame(self):
-		if self > [800, 0]:
-			screens == "gameover" #ignore for now
-			
-	
-	
-			
-	 
-	
-		
-	
-		
-	   
-	
-	
-	# ~ def endgame (self):
-		# ~ game = False
+	# ~ def endgame(self):
+		# ~ if self.rect > [800, 0]:
+			# ~ screens == "gameover" #ignore for now
 

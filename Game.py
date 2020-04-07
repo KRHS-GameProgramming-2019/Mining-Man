@@ -42,6 +42,10 @@ while True:
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
     
+    
+    
+    
+    
     while screens == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -141,13 +145,14 @@ while True:
                 elif event.key == pygame.K_o:
                     screens = "options"
                 
-                
         screen.blit(image, imgRect)
         pygame.display.flip()
         
     #---------------------------end game----------------------------------#
     image = pygame.image.load("images/background/gameover.png")
     imgRect = image.get_rect()
+    
+	    
     while screens == "gameover":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -159,7 +164,7 @@ while True:
                     screens = "menu"
         screen.blit(image, imgRect)
         pygame.display.flip()
-		
+        
         
         
     #---------------------------Game------------------------------------
@@ -214,7 +219,7 @@ while True:
                        
                         
         cluster.update()
-        
+        # ~ cluster.endgame()
                     
                 
         
