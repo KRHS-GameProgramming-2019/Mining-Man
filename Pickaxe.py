@@ -91,7 +91,6 @@ class Pickaxe():
         if self.direct == "send":
             self.animate2()
             if self.rect.centerx < self.target[0] and self.rect.centery < self.target[1]:
-                # ~ self.sound.play()
                 self.back()
         elif self.direct == "back":
             self.canHit = False
