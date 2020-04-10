@@ -1,4 +1,4 @@
-#Main game file
+#Main game filea
 import pygame, sys, math, random
 from Player import * 
 from Screens import *
@@ -42,42 +42,41 @@ while True:
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
-    playButton=Button("test", [100,100])
-    optionsButton=Button("test", [100, 300])
+    playButton=Button("test", [350,100])
+    optionsButton=Button("test", [350, 300])
+    exitButton=Button("test", [350, 500])
     
     while screens == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit();
             elif event.type == pygame.MOUSEMOTION:
+                
                 playButton.update(event.pos, event.buttons)
                 optionsButton.update(event.pos, event.buttons)
+                exitButton.update(event.pos, event.buttons)
+           
             elif event.type == pygame.MOUSEBUTTONDOWN:
+                
                 playButton.click(event.pos)
                 optionsButton.click(event.pos)
+                exitButton.click(event.pos)
+                
             elif event.type == pygame.MOUSEBUTTONUP:
                 if playButton.click(event.pos):
                     screens = "game"
                 if optionsButton.click(event.pos):
                     screens = "options"
+                if exitButton.click(event.pos):
+                    sys.exit()
             
             
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    screens = "game"
-                elif event.key == pygame.K_o:
-                    screens = "options"
-                elif event.key == pygame.K_ESCAPE:
-                    sys.exit();
-                elif event.key == pygame.K_u:
-                    screens = "unicorn"
-                elif event.key == pygame.K_n:
-                    screens = "night"
                     
                     
         screen.blit(image, imgRect)
         screen.blit(playButton.image, playButton.rect)
         screen.blit(optionsButton.image, optionsButton.rect)
+        screen.blit(exitButton.image, exitButton.rect)
         pygame.display.flip()
     #--------------------------Unicorn----------------------------------
     # ~ image = pygame.image.load("images/TitleScreen/f.png")
