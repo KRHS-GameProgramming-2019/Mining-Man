@@ -9,11 +9,15 @@ from practice import *
 from Button import *
 from Ore import *
 from Cluster import *
+from Text import *
 pygame.init()
 
 size = [900, 640]
 screen = pygame.display.set_mode(size)
 screens = "menu"
+
+counter = 1;
+score = Hud("Score: ", [0,0])
 
 clock = pygame.time.Clock()
 
@@ -227,6 +231,7 @@ while True:
         else:
             oreTimer = 0
             cluster.addCol()
+            score.update(kills)
         #-------End Auto Ores----------------#
  
         pick.update()
