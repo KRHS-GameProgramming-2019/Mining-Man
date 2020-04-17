@@ -50,10 +50,7 @@ while True:
     playButton=Button("test", [350,100])
     optionsButton=Button("test", [350, 300])
     exitButton=Button("test", [350, 500])
-    
-    
-    
-    
+    nightButton=Button("test", [100,200])
     
     while screens == "menu":
         for event in pygame.event.get():
@@ -64,12 +61,139 @@ while True:
                 playButton.update(event.pos, event.buttons)
                 optionsButton.update(event.pos, event.buttons)
                 exitButton.update(event.pos, event.buttons)
+                nightButton.update(event.pos, event.buttons)
            
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 
                 playButton.click(event.pos)
                 optionsButton.click(event.pos)
                 exitButton.click(event.pos)
+                nightButton.click(event.pos)
+                
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if playButton.click(event.pos):
+                    screens = "game"
+                if optionsButton.click(event.pos):
+                    screens = "options"
+                if nightButton.click(event.pos):
+                    screens = "night"
+                if exitButton.click(event.pos):
+                    sys.exit()
+        
+        screen.blit(image, imgRect)
+        screen.blit(playButton.image, playButton.rect)
+        screen.blit(optionsButton.image, optionsButton.rect)
+        screen.blit(exitButton.image, exitButton.rect)
+        screen.blit(nightButton.image, nightButton.rect)
+        pygame.display.flip()
+
+#-------------------------- Options-------------------------------------         
+    image = pygame.image.load("images/TitleScreen/titlescreenbackground-options1.png")
+    imgRect = image.get_rect()
+    backButton=Button("test", [675,50]) 
+    
+    while screens == "options":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.MOUSEMOTION:
+                backButton.update(event.pos, event.buttons)
+                
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                backButton.click(event.pos)
+                
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if backButton.click(event.pos):
+                    screens = "menu"
+                
+        screen.blit(image, imgRect)
+        screen.blit(backButton.image, backButton.rect)
+        pygame.display.flip()
+        
+    #--------------------------Game Selection-----------------------------
+    image = pygame.image.load("images/TitleScreen/tempselection.png")
+    imgRect = image.get_rect()
+    resumeButton=Button("test", [350,100])
+    optionsButton=Button("test", [350, 300])
+    menuButton=Button("test", [350, 500])
+    
+    while screens == "select":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.MOUSEMOTION:
+                
+                resumeButton.update(event.pos, event.buttons)
+                optionsButton.update(event.pos, event.buttons)
+                menuButton.update(event.pos, event.buttons)
+           
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                
+                resumeButton.click(event.pos)
+                optionsButton.click(event.pos)
+                menuButton.click(event.pos)
+                
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if resumeButton.click(event.pos):
+                    screens = "game"
+                if optionsButton.click(event.pos):
+                    screens = "gameoptions"
+                if menuButton.click(event.pos):
+                    screens = "menu"
+            
+        screen.blit(image, imgRect)
+        screen.blit(resumeButton.image, resumeButton.rect)
+        screen.blit(optionsButton.image, optionsButton.rect)
+        screen.blit(menuButton.image, menuButton.rect)
+        pygame.display.flip()
+                    
+    #--------------------------Game Options-----------------------------
+    image = pygame.image.load("images/TitleScreen/titlescreenbackground-options1.png")
+    imgRect = image.get_rect()
+    backButton=Button("test", [675,50]) 
+    
+    while screens == "gameoptions":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.MOUSEMOTION:
+                backButton.update(event.pos, event.buttons)
+                
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                backButton.click(event.pos)
+                
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if backButton.click(event.pos):
+                    screens = "select"
+         
+        
+        screen.blit(image, imgRect)
+        screen.blit(backButton.image, backButton.rect)
+        pygame.display.flip()
+    #--------------------------Night Mode-------------------------------
+    image = pygame.image.load("images/background/black entrance.png")
+    imgRect = image.get_rect()
+    playButton=Button("test", [350,100])
+    optionsButton=Button("test", [350, 300])
+    exitButton=Button("test", [350, 500])
+    
+    while screens == "night":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.MOUSEMOTION:
+                
+                playButton.update(event.pos, event.buttons)
+                optionsButton.update(event.pos, event.buttons)
+                exitButton.update(event.pos, event.buttons)
+                
+           
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                
+                playButton.click(event.pos)
+                optionsButton.click(event.pos)
+                exitButton.click(event.pos)
+                
                 
             elif event.type == pygame.MOUSEBUTTONUP:
                 if playButton.click(event.pos):
@@ -78,96 +202,11 @@ while True:
                     screens = "options"
                 if exitButton.click(event.pos):
                     sys.exit()
-            
-            
-                    
-                    
+                
         screen.blit(image, imgRect)
         screen.blit(playButton.image, playButton.rect)
         screen.blit(optionsButton.image, optionsButton.rect)
         screen.blit(exitButton.image, exitButton.rect)
-        pygame.display.flip()
-    #--------------------------Unicorn----------------------------------
-    # ~ image = pygame.image.load("images/TitleScreen/f.png")
-    # ~ imgRect = image.get_rect()
-    # ~ while screens == "unicorn":
-        # ~ for event in pygame.event.get():
-            # ~ if event.type == pygame.QUIT:
-                # ~ sys.exit();
-            # ~ elif event.type == pygame.KEYDOWN:
-                # ~ if event.key == pygame.K_RETURN:
-                    # ~ screens = "menu"
-                # ~ elif event.key == pygame.K_ESCAPE:
-                    # ~ sys.exit();
-                    
-        # ~ screen.blit(image, imgRect)
-        # ~ pygame.display.flip()  
-    #--------------------------Options----------------------------------             
-    image = pygame.image.load("images/TitleScreen/titlescreenbackground-options1.png")
-    imgRect = image.get_rect()
-    while screens == "options":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit();
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_o:
-                    screens = "menu"
-                elif event.key == pygame.K_ESCAPE:
-                    screens = "menu"
-        
-        screen.blit(image, imgRect)
-        pygame.display.flip()
-    #--------------------------Game Selection-----------------------------
-    image = pygame.image.load("images/TitleScreen/tempselection.png")
-    imgRect = image.get_rect()
-    while screens == "select":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit();
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_o:
-                    screens = "gameoptions"
-                elif event.key == pygame.K_ESCAPE:
-                    screens = "game"
-                elif event.key == pygame.K_RETURN:
-                    screens = "menu"
-        screen.blit(image, imgRect)
-        pygame.display.flip()
-                    
-    #--------------------------Game Options-----------------------------
-    image = pygame.image.load("images/TitleScreen/titlescreenbackground-options1.png")
-    imgRect = image.get_rect()
-    while screens == "gameoptions":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit();
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_o:
-                    screens = "select"
-                elif event.key == pygame.K_ESCAPE:
-                    screens = "select"
-                elif event.key == pygame.K_RETURN:
-                    screens = "select"
-         
-        
-        screen.blit(image, imgRect)
-        pygame.display.flip()
-    #--------------------------Night Mode-------------------------------
-    image = pygame.image.load("images/background/black entrance.png")
-    imgRect = image.get_rect()
-    while screens == "night":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit();
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    screens = "game"
-                elif event.key == pygame.K_ESCAPE:
-                    screens = "menu"
-                elif event.key == pygame.K_o:
-                    screens = "options"
-                
-        screen.blit(image, imgRect)
         pygame.display.flip()
         
     #---------------------------end game----------------------------------#
