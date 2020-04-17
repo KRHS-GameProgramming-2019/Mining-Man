@@ -9,14 +9,19 @@ class Hud():
         pygame.font.get_fonts()
         pygame.font.match_font
         self.font = pygame.font.Font(None, 30)
+        
+        WHITE = (255,255,255)
+        
         self.baseText = baseText
-        self.image = self.font.render("Score: 0", 1, (0, 0, 0))
+        
+        self.image = self.font.render("Score: 0", 1, WHITE)
         self.rect = self.image.get_rect(topleft = startPos)
         
         
     def update(self, score):
+        WHITE = (255,255,255)
         text = self.baseText + str(score)
-        self.image = self.font.render(text , 1, (0, 0, 0))
+        self.image = self.font.render(text , 1, WHITE)
         self.rect = self.image.get_rect(topleft = self.rect.topleft)
         
         
