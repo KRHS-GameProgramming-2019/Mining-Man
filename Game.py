@@ -17,7 +17,8 @@ screen = pygame.display.set_mode(size)
 screens = "menu"
 
 counter = 1;
-score = Hud("Score: ", [0,0])
+score = Hud("Score: ", [780,30])
+kills = 0
 
 clock = pygame.time.Clock()
 
@@ -290,6 +291,7 @@ while True:
                 screen.blit(ore.image, ore.rect)
         screen.blit(guy.image, guy.rect)
         screen.blit(pick.image, pick.rect)
+        screen.blit(score.image, score.rect)
         pygame.display.flip()
         clock.tick(60)
     
