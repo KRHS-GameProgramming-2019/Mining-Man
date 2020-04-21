@@ -17,8 +17,7 @@ screen = pygame.display.set_mode(size)
 screens = "menu"
 
 counter = 1;
-score = Hud("Score: ", [750,10])
-kills = 0
+score = Hud("Score: ", [0,0])
 
 clock = pygame.time.Clock()
 
@@ -271,14 +270,13 @@ while True:
         else:
             oreTimer = 0
             cluster.addCol()
+            score.update(kills)
         #-------End Auto Ores----------------#
  
         pick.update()
         
         if pick.canHit:
             cluster.pickCollide(pick)
-            kills += len(cluster.vanes)
-        score.update(kills)
                        
                         
         cluster.update()
@@ -292,7 +290,6 @@ while True:
                 screen.blit(ore.image, ore.rect)
         screen.blit(guy.image, guy.rect)
         screen.blit(pick.image, pick.rect)
-        screen.blit(score.image, score.rect)
         pygame.display.flip()
         clock.tick(60)
     
