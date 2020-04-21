@@ -278,6 +278,8 @@ while True:
         
         if pick.canHit:
             cluster.pickCollide(pick)
+            kills += 4*(len(cluster.vanes))
+        score.update(kills)
                        
                         
         cluster.update()
