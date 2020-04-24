@@ -273,12 +273,19 @@ while True:
             cluster.addCol()
             score.update(kills)
         #-------End Auto Ores----------------#
- 
+
         pick.update()
         
         if pick.canHit:
             cluster.pickCollide(pick)
-            kills += 4*(len(cluster.vanes))
+            
+            
+            kills += ((len(cluster.vanes)))
+            print(rare)
+
+            
+            
+            
         score.update(kills)
                        
                         
