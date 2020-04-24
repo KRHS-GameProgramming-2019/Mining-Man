@@ -281,7 +281,6 @@ while True:
             
             
             kills += ((len(cluster.vanes)))
-            print(rare)
 
             
             
