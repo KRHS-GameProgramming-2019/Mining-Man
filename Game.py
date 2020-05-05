@@ -278,7 +278,7 @@ while True:
         
         if pick.canHit:
             cluster.pickCollide(pick)
-            Ore.rareness():
+            # ~ Ore.rareness()
             
             kills +=((len(cluster.vanes)))
 
