@@ -1,4 +1,4 @@
-#Main game filea
+#Main game file
 import pygame, sys, math, random
 from Player import * 
 from Screens import *
@@ -47,7 +47,7 @@ while True:
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
-    playButton=Button("test", [350,100])
+    playButton=Button("testvine_", [350,100])
     optionsButton=Button("test", [350, 300])
     exitButton=Button("test", [350, 500])
     nightButton=Button("test", [100,200])
@@ -273,7 +273,7 @@ while True:
             cluster.addCol()
             score.update(kills)
         #-------End Auto Ores----------------#
-
+   
         pick.update()
         
         if pick.canHit:
