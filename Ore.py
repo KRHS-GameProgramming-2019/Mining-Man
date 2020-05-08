@@ -97,6 +97,24 @@ class Ore():
 							return True
 		return False
 		
+	def rareness(kind = None):
+		if kind == "coal":
+			rare = 2
+		if kind == "iron":
+			rare = 3
+		if kind == "ruby":
+			rare = 4
+		if kind == "diamond":
+			rare = 7
+		if kind == "amethyst":
+			rare = 5
+		if kind == "emerald":
+			rare = 6
+		if kind == "rainbow":
+			rare = 8
+		if kind == "dirt":
+			rare = 1
+	
 	def pickCollide(self, other):
 		if self != other:
 			self.sound.play()

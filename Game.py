@@ -273,11 +273,19 @@ while True:
             cluster.addCol()
             score.update(kills)
         #-------End Auto Ores----------------#
- 
+   
         pick.update()
         
         if pick.canHit:
             cluster.pickCollide(pick)
+            # ~ Ore.rareness()
+            
+            kills +=((len(cluster.vanes)))
+
+            
+            
+            
+        score.update(kills)
                        
                         
         cluster.update()
