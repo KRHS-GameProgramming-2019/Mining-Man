@@ -30,28 +30,20 @@ class Ore():
 			
 		if kind == "coal":
 			self.image = pygame.image.load("images/Ores/coalDirt.png")
-			rare = 2
 		elif kind == "iron":
 			self.image = pygame.image.load("images/Ores/IRONDirt.png")
-			rare = 3
 		elif kind == "ruby":
 			self.image = pygame.image.load("images/Ores/RubieDirt.png")
-			rare = 4
 		elif kind == "diamond":
 			self.image = pygame.image.load("images/Ores/diamondDirt.png")
-			rare = 7
 		elif kind == "amethyst":
 			self.image = pygame.image.load("images/Ores/AmethestDirt.png")
-			rare = 5
 		elif kind == "emerald":
 			self.image = pygame.image.load("images/Ores/EmeraldDirt.png")
-			rare = 6
 		elif kind == "rainbow":
 			self.image = pygame.image.load("images/Ores/RainbowDirt.png")
-			rare = 8
 		elif kind == "dirt":
 			self.image = pygame.image.load("images/Ores/BaseDirt.png")
-			rare = 1
 		elif kind == "dead":
 			self.image = pygame.image.load("images/Ores/Dead.png")
 					   
@@ -97,23 +89,23 @@ class Ore():
 							return True
 		return False
 		
-	def rareness(kind = None):
-		if kind == "coal":
-			rare = 2
-		if kind == "iron":
-			rare = 3
-		if kind == "ruby":
-			rare = 4
-		if kind == "diamond":
-			rare = 7
-		if kind == "amethyst":
-			rare = 5
-		if kind == "emerald":
-			rare = 6
-		if kind == "rainbow":
-			rare = 8
-		if kind == "dirt":
-			rare = 1
+	# ~ def rareness(kind = None):
+		# ~ if kind == "coal":
+			# ~ rare = 2
+		# ~ if kind == "iron":
+			# ~ rare = 3
+		# ~ if kind == "ruby":
+			# ~ rare = 4
+		# ~ if kind == "diamond":
+			# ~ rare = 7
+		# ~ if kind == "amethyst":
+			# ~ rare = 5
+		# ~ if kind == "emerald":
+			# ~ rare = 6
+		# ~ if kind == "rainbow":
+			# ~ rare = 8
+		# ~ if kind == "dirt":
+			# ~ rare = 1
 	
 	def pickCollide(self, other):
 		if self != other:
