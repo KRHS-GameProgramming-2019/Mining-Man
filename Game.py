@@ -278,26 +278,24 @@ while True:
         
         if pick.canHit:
             cluster.pickCollide(pick)
-			if kind == "coal":
-				rare = 2
-			elif kind == "iron":
-				rare = 3
-			elif kind == "ruby":
-				rare = 4
-			elif kind == "diamond":
-				rare = 7
-			elif kind == "amethyst":
-				rare = 5
-			elif kind == "emerald":
-				rare = 6
-			elif kind == "rainbow":
-				rare = 8
-			elif kind == "dirt":
-				rare = 1
+			# ~ if kind == "coal":
+				# ~ rare = 2
+			# ~ elif kind == "iron":
+				# ~ rare = 3
+			# ~ elif kind == "ruby":
+				# ~ rare = 4
+			# ~ elif kind == "diamond":
+				# ~ rare = 7
+			# ~ elif kind == "amethyst":
+				# ~ rare = 5
+			# ~ elif kind == "emerald":
+				# ~ rare = 6
+			# ~ elif kind == "rainbow":
+				# ~ rare = 8
+			# ~ elif kind == "dirt":
+				# ~ rare = 1
 	  
-			
-			
-			kills +=((len(cluster.vanes)))
+            kills +=((len(cluster.vanes)))
 
             
             
