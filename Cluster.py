@@ -28,8 +28,8 @@ class Cluster():
         #if len(self.ores) >= 1:             #first row
         for colNum, oreC in enumerate(self.ores):
             vane = []
-            if colNum > 12:
-                screens == endgame
+            # ~ if colNum >  12 :
+                # ~ screens == "gameover"
             currKind = None
             for oreNum, ore in enumerate(oreC):
                 if not currKind:            #start of column
