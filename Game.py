@@ -303,9 +303,9 @@ while True:
         
         if pick.canHit:
             cluster.pickCollide(pick)
-			
+            rareness()
             kills +=((len(cluster.vanes)))
-
+            
                     
         score.update(kills)
                        
