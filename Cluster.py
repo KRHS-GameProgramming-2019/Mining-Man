@@ -20,7 +20,6 @@ class Cluster():
             oreCollumn += [Ore(None, [0, (6*80)-(i*80)])]
         self.ores += [oreCollumn]
         self.findVanes()
-        
        
     def findVanes(self):
         self.vanes=[]

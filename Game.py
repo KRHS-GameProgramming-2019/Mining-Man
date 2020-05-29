@@ -276,7 +276,7 @@ while True:
    
         pick.update()
         
-        def rareness(kind = None):
+        def rareness(kind = 0):
             kind = ore.kind
             if kind == "coal":
                 rare = 2
@@ -306,7 +306,13 @@ while True:
             rareness()
             kills +=((len(cluster.vanes)))
             
-                    
+        for oreCollumn in cluster.ores:
+            if len(oreCollumn) > 10:
+                screens == "gameover"
+                print("end of game")
+            
+        
+        
         score.update(kills)
                        
                         
