@@ -50,7 +50,7 @@ while True:
     playButton=Button("play", [350,100])
     optionsButton=Button("options", [350, 300])
     exitButton=Button("exit", [350, 500])
-    nightButton=Button("test", [100,200])
+    # ~ nightButton=Button("test", [100,200])
     
     while screens == "menu":
         for event in pygame.event.get():
@@ -61,22 +61,22 @@ while True:
                 playButton.update(event.pos, event.buttons)
                 optionsButton.update(event.pos, event.buttons)
                 exitButton.update(event.pos, event.buttons)
-                nightButton.update(event.pos, event.buttons)
+                # ~ nightButton.update(event.pos, event.buttons)
            
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 
                 playButton.click(event.pos)
                 optionsButton.click(event.pos)
                 exitButton.click(event.pos)
-                nightButton.click(event.pos)
+                # ~ nightButton.click(event.pos)
                 
             elif event.type == pygame.MOUSEBUTTONUP:
                 if playButton.click(event.pos):
                     screens = "game"
                 if optionsButton.click(event.pos):
                     screens = "options"
-                if nightButton.click(event.pos):
-                    screens = "night"
+                # ~ if nightButton.click(event.pos):
+                    # ~ screens = "night"
                 if exitButton.click(event.pos):
                     sys.exit()
         
@@ -84,7 +84,7 @@ while True:
         screen.blit(playButton.image, playButton.rect)
         screen.blit(optionsButton.image, optionsButton.rect)
         screen.blit(exitButton.image, exitButton.rect)
-        screen.blit(nightButton.image, nightButton.rect)
+        # ~ screen.blit(nightButton.image, nightButton.rect)
         pygame.display.flip()
 
 #-------------------------- Options-------------------------------------         
