@@ -306,10 +306,10 @@ while True:
             rareness()
             kills +=((len(cluster.vanes)))
             
-        for oreCollumn in cluster.ores:
-            if len(oreCollumn) > 10:
-                screens == "gameover"
-                print("end of game")
+        # ~ for oreCollumn in cluster.ores:
+            # ~ if len(oreCollumn) > 10:
+                # ~ screens == "gameover"
+                # ~ print("end of game")
             
         
         
