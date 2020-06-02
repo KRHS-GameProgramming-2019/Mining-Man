@@ -47,9 +47,9 @@ while True:
     pygame.mixer.init()
     pygame.mixer.music.load("Sound/Music/spacecave.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
-    playButton=Button("test", [350,100])
-    optionsButton=Button("test", [350, 300])
-    exitButton=Button("test", [350, 500])
+    playButton=Button("play", [350,100])
+    optionsButton=Button("options", [350, 300])
+    exitButton=Button("exit", [350, 500])
     nightButton=Button("test", [100,200])
     
     while screens == "menu":
